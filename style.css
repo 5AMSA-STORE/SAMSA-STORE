@@ -759,3 +759,44 @@ body {
     color: #ffffff !important;
     display: flex !important;
 }
+/* الأكواد دي هتتطبق على الموبايل بس */
+@media (max-width: 768px) {
+    
+    /* 1. الشريط العلوي المحمر: نخلي الكلام يترتب تحت بعضه أو يصغر */
+    .top-bar-container, .top-bar { /* حط هنا اسم كلاس الشريط العلوي بتاعك */
+        flex-direction: column !important;
+        text-align: center;
+        gap: 5px;
+        padding: 10px 0;
+    }
+
+    /* 2. شريط اللوجو والسرش والسلة */
+    .main-header { /* اسم كلاس منطقة اللوجو والبحث */
+        flex-direction: column !important;
+        gap: 15px;
+        align-items: center !important;
+    }
+    
+    .main-header input { /* شريط البحث نخليه يأخد العرض المتاح عشان يظهر كامل */
+        width: 90% !important;
+    }
+
+    /* 3. شريط الأقسام (الرئيسية - جرابات - ساعات...) */
+    nav, .nav-bar { /* حط هنا كلاس شريط التنقل بتاعك */
+        flex-wrap: wrap !important; /* يسمح للعناصر تنزل سطر جديد لو المساحة مش مكفية */
+        justify-content: center !important;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    nav a, .nav-bar a {
+        font-size: 13px !important; /* نصغر الخط سنة بسيطة عالموبايل عشان يريح العين */
+        padding: 5px 8px !important;
+    }
+    
+    /* 4. البانر أو الصورة الكبيرة والأقسام */
+    .hero-section, .slider { /* اسم كلاس منطقة صوره الأيفون الكبيرة */
+        background-size: cover;
+        height: auto;
+    }
+}
