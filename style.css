@@ -800,3 +800,34 @@ body {
         height: auto;
     }
 }
+/* تنسيقات خاصة بالموبايل والشاشات الصغيرة */
+@media (max-width: 768px) {
+    
+    /* ضبط شريط الإشعارات العلوي المحمر */
+    .top-bar { 
+        flex-direction: column !important;
+        height: auto !important;
+        padding: 8px 0 !important;
+        gap: 5px !important;
+    }
+    
+    /* ضبط شريط التنقل والأقسام */
+    nav, .nav-bar { 
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        padding: 10px 5px !important;
+    }
+
+    nav a, .nav-bar a {
+        font-size: 13px !important;
+        padding: 4px 6px !important;
+    }
+
+    /* اللوجو والسلة */
+    .main-header {
+        flex-direction: column !important;
+        gap: 10px !important;
+        padding: 10px 0 !important;
+    }
+}
