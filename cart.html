@@ -13,9 +13,120 @@
 🛒 سلة المشتريات
 </h1>
 
-<div id="cart-items" style="padding:20px;text-align:center;">
-لا توجد منتجات في السلة
+<div id="cart-items" style="max-width:800px;margin:auto;padding:20px;"></div>
+
+<div style="max-width:800px;margin:auto;padding:20px;">
+
+<h3>بيانات الطلب</h3>
+
+<input id="customer-name" type="text" placeholder="الاسم بالكامل"
+style="width:100%;padding:12px;margin:10px 0;">
+
+<input id="customer-phone" type="text" placeholder="رقم الهاتف"
+style="width:100%;padding:12px;margin:10px 0;">
+
+<input id="customer-city" type="text" placeholder="المحافظة"
+style="width:100%;padding:12px;margin:10px 0;">
+
+<textarea id="customer-address"
+placeholder="العنوان بالتفصيل"
+style="width:100%;padding:12px;margin:10px 0;height:100px;"></textarea>
+
+<button onclick="sendOrder()"
+style="width:100%;padding:15px;background:#25D366;color:white;border:none;border-radius:10px;font-size:18px;">
+إرسال الطلب
+</button>
+
 </div>
+
+<script>
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+let cartContainer = document.getElementById("cart-items");
+
+let total = 0;
+
+if(cart.length === 0){
+
+cartContainer.innerHTML = "<h3>السلة فارغة</h3>";
+
+}else{
+
+cart.forEach(item=>{
+
+total += item.price;
+
+cartContainer.innerHTML += `
+<div style="background:white;padding:15px;margin:10px 0;border-radius:10px;">
+<h3>${item.name}</h3>
+<p>${item.price} جنيه</p>
+</div>
+`;
+
+});
+
+cartContainer.innerHTML += `
+<h2 style="margin-top:20px;color:#6d0f2d;">
+الإجمالي: ${total} جنيه
+</h2>
+`;
+
+}
+
+function sendOrder(){
+
+let name =
+document.getElementById("customer-name").value;
+
+let phone =
+document.getElementById("customer-phone").value;
+
+let city =
+document.getElementById("customer-city").value;
+
+let address =
+document.getElementById("customer-address").value;
+
+if(!name || !phone || !city || !address){
+
+alert("من فضلك أكمل جميع البيانات");
+
+return;
+
+}
+
+let message =
+`طلب جديد من 5AMSA STORE
+
+الاسم: ${name}
+
+الهاتف: ${phone}
+
+المحافظة: ${city}
+
+العنوان: ${address}
+
+----------------
+
+`;
+
+cart.forEach(item=>{
+
+message += `${item.name} - ${item.price} جنيه\n`;
+
+});
+
+message += `\nالإجمالي: ${total} جنيه`;
+
+window.open(
+`https://wa.me/201095354087?text=${encodeURIComponent(message)}`,
+'_blank'
+);
+
+}
+
+</script>
 
 </body>
 </html>

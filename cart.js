@@ -1,4 +1,6 @@
-let cart = [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+updateCart();
 
 function addToCart(name, price) {
 
@@ -7,8 +9,11 @@ name: name,
 price: price
 });
 
+localStorage.setItem("cart", JSON.stringify(cart));
+
 updateCart();
 
+alert("تمت إضافة المنتج للسلة");
 }
 
 function updateCart() {
@@ -18,7 +23,6 @@ let count = document.getElementById("cart-count");
 if(count){
 count.innerText = cart.length;
 }
-
 }
 
 function sendWhatsApp() {
@@ -28,7 +32,7 @@ alert("السلة فارغة");
 return;
 }
 
-let message = "طلب جديد:%0A%0A";
+let message = "طلب جديد من 5AMSA STORE%0A%0A";
 
 cart.forEach(item => {
 message += `${item.name} - ${item.price} جنيه%0A`;
@@ -38,5 +42,4 @@ window.open(
 `https://wa.me/201095354087?text=${message}`,
 '_blank'
 );
-
 }
