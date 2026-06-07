@@ -900,3 +900,30 @@ margin:10px 0;
 .feature p{
 color:#666;
 }
+@media (max-width:768px){
+
+.main-header{
+display:flex;
+flex-direction:column;
+gap:15px;
+padding:15px;
+}
+
+.search-box-container{
+width:100%;
+}
+
+.search-box-container input{
+width:100%;
+}
+
+.logo-wrapper{
+justify-content:center;
+}
+
+nav{
+flex-wrap:wrap;
+gap:15px;
+}
+
+}
