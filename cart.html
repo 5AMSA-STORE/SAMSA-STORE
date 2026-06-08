@@ -1,132 +1,42 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>سلة المشتريات - 5AMSA STORE</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سلة المشتريات - 5AMSA STORE</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<h1 style="text-align:center;margin:30px;">
-🛒 سلة المشتريات
-</h1>
+    <h1 style="text-align:center;margin:30px;">
+        🛒 سلة المشتريات
+    </h1>
 
-<div id="cart-items" style="max-width:800px;margin:auto;padding:20px;"></div>
+    <!-- هنا هيتعرض المنتجات وزرار الـ ❌ أوتوماتيك -->
+    <div id="cart-list" style="max-width:800px;margin:auto;padding:20px; background: #fff; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);"></div>
 
-<div style="max-width:800px;margin:auto;padding:20px;">
+    <div style="max-width:800px;margin:auto;padding:20px;">
+        <h2 style="margin-top:20px;color:#6d0f2d; text-align: center;">
+            الإجمالي: <span id="cart-total">0</span> جنيه
+        </h2>
+    </div>
 
-<h3>بيانات الطلب</h3>
+    <div style="max-width:800px;margin:auto;padding:20px;">
+        <h3>بيانات الطلب</h3>
+        
+        <!-- تم تعديل الـ ID عشان يقرأ من الدالة sendWhatsApp الموحدة -->
+        <input id="name" type="text" placeholder="الاسم بالكامل" style="width:100%;padding:12px;margin:10px 0; border: 1px solid #ccc; border-radius: 5px;">
+        <input id="phone" type="text" placeholder="رقم الهاتف" style="width:100%;padding:12px;margin:10px 0; border: 1px solid #ccc; border-radius: 5px;">
+        <input id="address" type="text" placeholder="المحافظة والعنوان بالتفصيل" style="width:100%;padding:12px;margin:10px 0; border: 1px solid #ccc; border-radius: 5px;">
 
-<input id="customer-name" type="text" placeholder="الاسم بالكامل"
-style="width:100%;padding:12px;margin:10px 0;">
+        <!-- الزرار بيشغل الدالة الموحدة اللي في ملف cart.js -->
+        <button onclick="sendWhatsApp()" style="width:100%;padding:15px;background:#25D366;color:white;border:none;border-radius:10px;font-size:18px;cursor:pointer;font-weight:bold;">
+            إرسال الطلب عبر واتساب
+        </button>
+    </div>
 
-<input id="customer-phone" type="text" placeholder="رقم الهاتف"
-style="width:100%;padding:12px;margin:10px 0;">
-
-<input id="customer-city" type="text" placeholder="المحافظة"
-style="width:100%;padding:12px;margin:10px 0;">
-
-<textarea id="customer-address"
-placeholder="العنوان بالتفصيل"
-style="width:100%;padding:12px;margin:10px 0;height:100px;"></textarea>
-
-<button onclick="sendOrder()"
-style="width:100%;padding:15px;background:#25D366;color:white;border:none;border-radius:10px;font-size:18px;">
-إرسال الطلب
-</button>
-
-</div>
-
-<script>
-
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-let cartContainer = document.getElementById("cart-items");
-
-let total = 0;
-
-if(cart.length === 0){
-
-cartContainer.innerHTML = "<h3>السلة فارغة</h3>";
-
-}else{
-
-cart.forEach(item=>{
-
-total += item.price;
-
-cartContainer.innerHTML += `
-<div style="background:white;padding:15px;margin:10px 0;border-radius:10px;">
-<h3>${item.name}</h3>
-<p>${item.price} جنيه</p>
-</div>
-`;
-
-});
-
-cartContainer.innerHTML += `
-<h2 style="margin-top:20px;color:#6d0f2d;">
-الإجمالي: ${total} جنيه
-</h2>
-`;
-
-}
-
-function sendOrder(){
-
-let name =
-document.getElementById("customer-name").value;
-
-let phone =
-document.getElementById("customer-phone").value;
-
-let city =
-document.getElementById("customer-city").value;
-
-let address =
-document.getElementById("customer-address").value;
-
-if(!name || !phone || !city || !address){
-
-alert("من فضلك أكمل جميع البيانات");
-
-return;
-
-}
-
-let message =
-`طلب جديد من 5AMSA STORE
-
-الاسم: ${name}
-
-الهاتف: ${phone}
-
-المحافظة: ${city}
-
-العنوان: ${address}
-
-----------------
-
-`;
-
-cart.forEach(item=>{
-
-message += `${item.name} - ${item.price} جنيه\n`;
-
-});
-
-message += `\nالإجمالي: ${total} جنيه`;
-
-window.open(
-`https://wa.me/201095354087?text=${encodeURIComponent(message)}`,
-'_blank'
-);
-
-}
-
-</script>
+    <!-- استدعاء ملف الجافا سكريبت الخارجي الموحد -->
+    <script src="cart.js"></script>
 
 </body>
 </html>
