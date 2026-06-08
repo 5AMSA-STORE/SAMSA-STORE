@@ -927,3 +927,45 @@ gap:15px;
 }
 
 }
+/* تثبيت أيقونة السلة في الشاشة */
+.cart-icon {
+    position: fixed !important;
+    bottom: 20px !important; /* مسافتها من تحت */
+    left: 20px !important;  /* مسافتها من الشمال (تقدر تخليها right لو عايزها على اليمين) */
+    background-color: #ffffff !important; /* لون خلفية السلة */
+    border: 2px solid #800020 !important; /* لون الإطار نفس لون براند موقعك */
+    padding: 12px 15px !important;
+    border-radius: 50% !important; /* يخليها دائرية شيك */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3) !important; /* ضل خفيف عشان تظهر فوق المنتجات */
+    z-index: 9999 !important; /* يضمن إنها تفضل فوق أي صورة أو منتج وأنت بتقلّب */
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+}
+
+/* تكبير العداد فوق السلة عشان يبان */
+#cart-count {
+    background-color: red !important;
+    color: white !important;
+    font-size: 12px !important;
+    font-weight: bold !important;
+    padding: 2px 6px !important;
+    border-radius: 50% !important;
+    position: absolute !important;
+    top: -5px !important;
+    right: -5px !important;
+}
+/* ضبط شريط الأقسام عشان يظهر كامل على الموبايل */
+@media (max-width: 768px) {
+    nav {
+        flex-wrap: wrap !important; /* يخلي الأقسام تنزل سطر جديد لو الشاشة ضيقة */
+        justify-content: center !important;
+        gap: 8px !important;
+        padding: 10px 5px !important;
+    }
+    nav a {
+        font-size: 13px !important; /* نصغر الخط سنة عشان الشاشة تكفي */
+        padding: 6px 10px !important;
+    }
+}
