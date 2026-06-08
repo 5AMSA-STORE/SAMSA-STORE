@@ -1,45 +1,68 @@
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+// تشغيل التحديث أول ما الصفحة تفتح
 updateCart();
 
+// 1️⃣ دالة إضافة منتج للسلة
 function addToCart(name, price) {
-
-cart.push({
-name: name,
-price: price
-});
-
-localStorage.setItem("cart", JSON.stringify(cart));
-
-updateCart();
-
-alert("تمت إضافة المنتج للسلة");
+    cart.push({ name: name, price: price });
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCart();
+    alert("تمت إضافة المنتج للسلة");
 }
 
+// 2️⃣ دالة تحديث وعرض السلة والعداد (المصلحة بالكامل)
 function updateCart() {
+    let cartList = document.getElementById("cart-list");
+    let cartTotal = document.getElementById("cart-total");
+    let cartCount = document.getElementById("cart-count");
 
-let count = document.getElementById("cart-count");
+    if (cartCount) cartCount.innerText = cart.length;
+    if (!cartList) return; 
 
-if(count){
-count.innerText = cart.length;
+    cartList.innerHTML = "";
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        total += item.price;
+        cartList.innerHTML += `
+            <div class="cart-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding: 5px; border-bottom: 1px solid #eee;">
+                <span>${item.name} - ${item.price} جنيه</span>
+                <button onclick="removeFromCart(${index})" style="background: none; border: none; color: red; font-weight: bold; cursor: pointer; font-size: 16px;">❌</button>
+            </div>
+        `;
+    });
+
+    if (cartTotal) cartTotal.innerText = total;
 }
+
+// 3️⃣ دالة مسح منتج معين من السلة بـ الـ X
+function removeFromCart(index) {
+    cart.splice(index, 1); 
+    localStorage.setItem("cart", JSON.stringify(cart)); 
+    updateCart(); 
 }
 
+// 4️⃣ دالة إرسال الطلب للواتساب (إوعى تمسحها)
 function sendWhatsApp() {
-
-if(cart.length === 0){
-alert("السلة فارغة");
-return;
-}
-
-let message = "طلب جديد من 5AMSA STORE%0A%0A";
-
-cart.forEach(item => {
-message += `${item.name} - ${item.price} جنيه%0A`;
-});
-
-window.open(
-`https://wa.me/201095354087?text=${message}`,
-'_blank'
-);
+    let name = document.getElementById("name") ? document.getElementById("name").value : "";
+    let phone = document.getElementById("phone") ? document.getElementById("phone").value : "";
+    let address = document.getElementById("address") ? document.getElementById("address").value : "";
+    
+    if(cart.length === 0) {
+        alert("السلة فارغة المحتوى!");
+        return;
+    }
+    
+    let message = "طلب جديد من الموقع:\n\n";
+    cart.forEach((item) => {
+        message += `- ${item.name} (${item.price} جنيه)\n`;
+    });
+    
+    let total = cart.reduce((sum, item) => sum + item.price, 0);
+    message += `\nإجمالي الحساب: ${total} جنيه\n\n`;
+    message += `الاسم: ${name}\nالرقم: ${phone}\nالعنوان: ${address}`;
+    
+    let url = "https://wa.me/201095354087?text=" + encodeURIComponent(message);
+    window.open(url, "_blank");
 }
