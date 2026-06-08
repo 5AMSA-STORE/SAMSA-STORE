@@ -11,7 +11,7 @@ function addToCart(name, price) {
     alert("تمت إضافة المنتج للسلة");
 }
 
-// 2️⃣ دالة تحديث وعرض السلة والعداد (المصلحة بالكامل)
+// 2️⃣ دالة تحديث وعرض السلة والعداد
 function updateCart() {
     let cartList = document.getElementById("cart-list");
     let cartTotal = document.getElementById("cart-total");
@@ -20,13 +20,20 @@ function updateCart() {
     if (cartCount) cartCount.innerText = cart.length;
     if (!cartList) return; 
 
+    // التعديل اللطيف هنا: لو السلة فضيت يكتب له السلة فارغة
+    if (cart.length === 0) {
+        cartList.innerHTML = "<h3 style='text-align:center; padding:20px; color:#999;'>السلة فارغة حالياً 🛒</h3>";
+        if (cartTotal) cartTotal.innerText = "0";
+        return;
+    }
+
     cartList.innerHTML = "";
     let total = 0;
 
     cart.forEach((item, index) => {
         total += item.price;
         cartList.innerHTML += `
-            <div class="cart-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding: 5px; border-bottom: 1px solid #eee;">
+            <div class="cart-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding: 10px; border-bottom: 1px solid #eee;">
                 <span>${item.name} - ${item.price} جنيه</span>
                 <button onclick="removeFromCart(${index})" style="background: none; border: none; color: red; font-weight: bold; cursor: pointer; font-size: 16px;">❌</button>
             </div>
@@ -43,18 +50,23 @@ function removeFromCart(index) {
     updateCart(); 
 }
 
-// 4️⃣ دالة إرسال الطلب للواتساب (إوعى تمسحها)
+// 4️⃣ دالة إرسال الطلب للواتساب
 function sendWhatsApp() {
     let name = document.getElementById("name") ? document.getElementById("name").value : "";
     let phone = document.getElementById("phone") ? document.getElementById("phone").value : "";
     let address = document.getElementById("address") ? document.getElementById("address").value : "";
     
-    if(cart.length === 0) {
+    if (cart.length === 0) {
         alert("السلة فارغة المحتوى!");
         return;
     }
+
+    if (!name || !phone || !address) {
+        alert("من فضلك أكمل جميع بيانات الطلب أولاً");
+        return;
+    }
     
-    let message = "طلب جديد من الموقع:\n\n";
+    let message = "طلب جديد من 5AMSA STORE:\n\n";
     cart.forEach((item) => {
         message += `- ${item.name} (${item.price} جنيه)\n`;
     });
@@ -63,6 +75,7 @@ function sendWhatsApp() {
     message += `\nإجمالي الحساب: ${total} جنيه\n\n`;
     message += `الاسم: ${name}\nالرقم: ${phone}\nالعنوان: ${address}`;
     
+    // تم الحفاظ على الرقم الجديد المكتوب في صفحتك 01095354087
     let url = "https://wa.me/201095354087?text=" + encodeURIComponent(message);
     window.open(url, "_blank");
 }
