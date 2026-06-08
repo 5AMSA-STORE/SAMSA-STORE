@@ -1,7 +1,7 @@
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 // تشغيل التحديث أول ما الصفحة تفتح
-updateCart();
+window.addEventListener("DOMContentLoaded", updateCart);
 
 // 1️⃣ دالة إضافة منتج للسلة
 function addToCart(name, price) {
