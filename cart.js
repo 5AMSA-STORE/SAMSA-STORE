@@ -15,12 +15,15 @@ function addToCart(name, price) {
 function updateCart() {
     let cartList = document.getElementById("cart-list");
     let cartTotal = document.getElementById("cart-total");
-    let cartCount = document.getElementById("cart-count");
 
-    if (cartCount) cartCount.innerText = cart.length;
+    // السطرين دول بيلفوا على أي عداد في الصفحة شايل id="cart-count" ويحدثوه فوراً
+    let cartCounts = document.querySelectorAll("#cart-count");
+    cartCounts.forEach(count => {
+        count.innerText = cart.length;
+    });
+
     if (!cartList) return; 
 
-    // التعديل اللطيف هنا: لو السلة فضيت يكتب له السلة فارغة
     if (cart.length === 0) {
         cartList.innerHTML = "<h3 style='text-align:center; padding:20px; color:#999;'>السلة فارغة حالياً 🛒</h3>";
         if (cartTotal) cartTotal.innerText = "0";
@@ -42,7 +45,6 @@ function updateCart() {
 
     if (cartTotal) cartTotal.innerText = total;
 }
-
 // 3️⃣ دالة مسح منتج معين من السلة بـ الـ X
 function removeFromCart(index) {
     cart.splice(index, 1); 
