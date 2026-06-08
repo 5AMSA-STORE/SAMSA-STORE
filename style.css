@@ -1070,3 +1070,7 @@ gap:15px;
         gap: 8px;
     }
 }
+/* إخفاء كلمات الشحن والدفع والمنتجات مع الحفاظ على السوشيال ميديا */
+.top-bar-container .features {
+    display: none !important;
+}
