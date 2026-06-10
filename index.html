@@ -1,289 +1,225 @@
 <!DOCTYPE html>
-
 <html lang="ar" dir="rtl">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>5AMSA STORE</title>
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5AMSA STORE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
-    <a href="https://wa.me/201095354087" class="floating-whatsapp">
-💬
-</a>
 
-<!-- 1. الشريطة العلوية (Top Bar): السوشيال يمين والمميزات شمال -->
-<!-- 1. الشريطة العلوية (Top Bar) المظبوطة -->
-<div class="top-bar-container">
-    <div class="features">
-        <span>🚚 شحن لجميع المحافظات</span>
-        <span>💰 الدفع عند الاستلام</span>
-        <span>🛡️ منتجات أصلية 100%</span>
-    </div>
-    <div class="social-icons">
-    <span class="follow-us">تابعنا على</span>
-    
-    <!-- رابط الفيسبوك الحقيقي -->
-    <a href="https://www.facebook.com/share/18eer2g4Wn/?mibextid=wwXIfr" target="_blank">
-        <i class="fab fa-facebook-f"></i>
-    </a>
-    
-    <!-- رابط الانستجرام الحقيقي -->
-    <a href="https://www.instagram.com/5amsa.store" target="_blank">
-        <i class="fab fa-instagram"></i>
-    </a>
-    
-    <!-- رابط التيك توك الحقيقي -->
-    <a href="https://www.tiktok.com/@5amsa.store?_r=1&_t=ZS-96y9TrTElSH" target="_blank">
-        <i class="fab fa-tiktok"></i>
-    </a>
-</div>
-</div>
+    <!-- رابط الواتساب العائم -->
+    <a href="https://wa.me/201095354087" class="floating-whatsapp">💬</a>
 
-<!-- 2. الهيدر الرئيسي المتكامل والوحيد -->
-<header class="main-header">
-    <!-- اليسار خالص: أيقونة السلة الاحترافية -->
-    <div class="cart-box-container">
-    <a href="cart.html" class="cart-icon-wrapper">
-        🛒 <span id="cart-count">0</span>
-    </a>
-    <span class="cart-label">السلة</span>
-</div>
-
-    <!-- المنتصف: اللوجو المدمج بالملي (الاسم شمال والوردة يمين) -->
-    <div class="center-logo">
-        <div class="logo-wrapper">
-            <div class="logo-text-side">
-                <h1>5AMSA</h1>
-                <p>STORE</p>
-            </div>
-            <img src="images/logo.png" alt="5AMSA STORE">
+    <!-- 1. الشريطة العلوية (Top Bar) -->
+    <div class="top-bar-container">
+        <div class="features">
+            <span>🚚 شحن لجميع المحافظات</span>
+            <span>💰 الدفع عند الاستلام</span>
+            <span>🛡️ منتجات أصلية 100%</span>
+        </div>
+        <div class="social-icons">
+            <span class="follow-us">تابعنا على</span>
+            <a href="https://www.facebook.com/share/18eer2g4Wn/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/5amsa.store" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@5amsa.store?_r=1&_t=ZS-96y9TrTElSH" target="_blank"><i class="fab fa-tiktok"></i></a>
         </div>
     </div>
 
-    <!-- اليمين خالص: خانة البحث -->
-    <div class="search-box-container">
-        <input type="text" placeholder="ابحث عن منتج...">
+    <!-- 2. الهيدر الرئيسي (السلة مظبوطة شمال، اللوجو في النص، البحث يمين) -->
+    <header class="main-header">
+        <!-- اليسار: أيقونة السلة الاحترافية -->
+        <div class="cart-box-container">
+            <a href="cart.html" class="cart-icon-wrapper">
+                🛒 <span id="cart-count">0</span>
+            </a>
+            <span class="cart-label">السلة</span>
+        </div>
+
+        <!-- المنتصف: اللوجو المدمج (تعديل مسار اللوجو لـ Images/logo.png) -->
+        <div class="center-logo">
+            <div class="logo-wrapper">
+                <div class="logo-text-side">
+                    <h1>5AMSA</h1>
+                    <p>STORE</p>
+                </div>
+                <img src="Images/logo.png" alt="5AMSA STORE">
+            </div>
+        </div>
+
+        <!-- اليمين: خانة البحث -->
+        <div class="search-box-container">
+            <input type="text" placeholder="ابحث عن منتج...">
+        </div>
+    </header>
+
+    <!-- 3. شريط التنقل (Navbar) -->
+    <nav>
+        <a href="index.html" class="active">الرئيسية</a>
+        <a href="cases.html">جرابات</a>
+        <a href="accessories.html">إكسسوارات</a>
+        <a href="decor.html">ديكورات</a>
+        <a href="offers.html">عروض</a>
+        <a href="#contact">تواصل معنا</a>
+    </nav>
+
+    <!-- 4. السلايدر (تم تعديل مسارات الصور لتقرأ من فولدر Images المظبوط) -->
+    <section class="slider">
+        <div class="slide active">
+            <img src="Images/slider1.jpg" alt="سلايدر 1">
+        </div>
+        <div class="slide">
+            <img src="Images/slider2.jpg" alt="سلايدر 2">
+        </div>
+        <div class="slide">
+            <img src="Images/slider3.jpg" alt="سلايدر 3">
+        </div>
+    </section>
+
+    <!-- 5. الأقسام الرئيسية (تم تصحيح المسارات بالملي على صورة الـ VS Code) -->
+    <section class="categories">
+        <a href="cases.html" class="category-card">
+            <img src="Images/cases.jpg" alt="جرابات">
+            <h3>جرابات</h3>
+        </a>
+
+        <a href="accessories.html" class="category-card">
+            <img src="Images/accessories.jpg" alt="إكسسوارات">
+            <h3>إكسسوارات</h3>
+        </a>
+
+        <a href="decor.html" class="category-card">
+            <img src="Images/decor.jpg" alt="ديكورات">
+            <h3>ديكورات</h3>
+        </a>
+
+        <a href="watches.html" class="category-card">
+            <img src="Images/business-watch.jpg" alt="ساعات">
+            <h3>ساعات</h3>
+        </a>
+
+        <a href="offers.html" class="category-card">
+            <img src="Images/offers.jpg" alt="عروض">
+            <h3>عروض</h3>
+        </a>
+    </section>
+
+    <!-- 6. عنوان المنتجات -->
+    <section class="products-title">
+        <h2>أحدث المنتجات</h2>
+    </section>
+
+    <!-- 7. شبكة المنتجات (تم تصحيح وربط كل صورة باسمها الفعلي والامتداد .jpg) -->
+    <section class="products">
+        <div class="card">
+            <img src="Images/cases.jpg" alt="جراب So Cool">
+            <h3>جراب آيفون So Cool</h3>
+            <p>300 جنيه</p>
+            <button onclick="addToCart('جراب آيفون So Cool',300)">أضف للسلة</button>
+        </div>
+
+        <div class="card">
+            <img src="Images/cases.jpg" alt="جراب ترافيس سكوت">
+            <h3>جراب آيفون ترافيس سكوت</h3>
+            <p>200 جنيه</p>
+            <button onclick="addToCart('جراب آيفون ترافيس سكوت',200)">أضف للسلة</button>
+        </div>
+
+        <div class="card">
+            <img src="Images/bmw-model.jpg" alt="جراب بورش ريسنج">
+            <h3>جراب آيفون بورش ريسنج</h3>
+            <p>300 جنيه</p>
+            <button onclick="addToCart('جراب آيفون بورش ريسنج',300)">أضف للسلة</button>
+        </div>
+
+        <div class="card">
+            <img src="Images/aramid-case.jpg" alt="جراب كاربون فايبر">
+            <h3>جراب كاربون فايبر أراميد S25 Ultra</h3>
+            <p>300 جنيه</p>
+            <button onclick="addToCart('جراب كاربون فايبر أراميد',300)">أضف للسلة</button>
+        </div>
+
+        <div class="card">
+            <img src="Images/bracelet.jpg" alt="سوار معصم">
+            <h3>سوار معصم كاجوال</h3>
+            <p>200 جنيه</p>
+            <button onclick="addToCart('سوار معصم كاجوال',200)">أضف للسلة</button>
+        </div>
+
+        <div class="card">
+            <img src="Images/accessories.jpg" alt="نظارة سوداء">
+            <h3>Black Fashion Glasses</h3>
+            <p>400 جنيه</p>
+            <button onclick="addToCart('Black Fashion Glasses',400)">أضف للسلة</button>
+        </div>
+
+        <div class="card">
+            <img src="Images/accessories.jpg" alt="نظارة شمسية">
+            <h3>Geometric Fashion Sunglasses</h3>
+            <p>400 جنيه</p>
+            <button onclick="addToCart('Geometric Fashion Sunglasses',400)">أضف للسلة</button>
+        </div>
+
+        <div class="card">
+            <img src="Images/business-watch.jpg" alt="ساعة حريمي">
+            <h3>Luxury Women's Watch</h3>
+            <p>500 جنيه</p>
+            <button onclick="addToCart('Luxury Womens Watch',500)">أضف للسلة</button>
+        </div>
+
+        <div class="card">
+            <img src="Images/business-watch.jpg" alt="ساعة رجالي">
+            <h3>Business Watch For Men</h3>
+            <p>900 جنيه</p>
+            <button onclick="addToCart('Business Watch For Men',900)">أضف للسلة</button>
+        </div>
+
+        <div class="card">
+            <img src="Images/decor.jpg" alt="ماكيت نينجا">
+            <h3>Model Kawasaki Ninja H2R</h3>
+            <p>600 جنيه</p>
+            <button onclick="addToCart('Model Kawasaki Ninja H2R',600)">أضف للسلة</button>
+        </div>
+
+        <div class="card">
+            <img src="Images/decor.jpg" alt="ماكيت بورش">
+            <h3>Model Porsche GT3 RS</h3>
+            <p>700 جنيه</p>
+            <button onclick="addToCart('Model Porsche GT3 RS',700)">أضف للسلة</button>
+        </div>
+
+        <div class="card">
+            <img src="Images/bmw-model.jpg" alt="ماكيت بي إم">
+            <h3>Model BMW M3</h3>
+            <p>700 جنيه</p>
+            <button onclick="addToCart('Model BMW M3',700)">أضف للسلة</button>
+        </div>
+    </section>
+
+    <!-- 8. صندوق التواصل -->
+    <div id="contact" class="whatsapp-box">
+        <h3>تواصل معنا</h3>
+        <a href="https://wa.me/201095354087">+20 10 95354087</a>
+        <a href="https://wa.me/201070797515">+20 107 079 7515</a>
     </div>
-</header>
 
+    <!-- 9. مميزات المتجر السفلية -->
+    <section class="features-section">
+        <div class="feature">🚚<h3>شحن سريع</h3><p>شحن لجميع محافظات مصر</p></div>
+        <div class="feature">💰<h3>الدفع عند الاستلام</h3><p>استلم المنتج ثم ادفع</p></div>
+        <div class="feature">🛡️<h3>منتجات أصلية</h3><p>جودة مضمونة 100%</p></div>
+        <div class="feature">📞<h3>دعم العملاء</h3><p>متواجدون للرد على استفساراتك</p></div>
+    </section>
 
-<nav>
-    <a href="index.html">الرئيسية</a>
-    <a href="cases.html">جرابات</a>
-    <a href="accessories.html">إكسسوارات</a>
-    <a href="decor.html">ديكورات</a>
-    <a href="offers.html">عروض</a>
-    <a href="#contact">تواصل معنا</a>
-</nav>
+    <!-- الفوتر -->
+    <footer>
+        ©️ 2026 5AMSA STORE
+    </footer>
 
-<section class="slider">
-
-<div class="slide active">
-<img src="images/slider1.jpg">
-</div>
-
-<div class="slide">
-<img src="images/slider2.jpg">
-</div>
-
-<div class="slide">
-<img src="images/slider3.jpg">
-</div>
-
-</section>
-
-<section class="categories">
-
-<a href="cases.html" class="category-card">
-<img src="images/cases.jpg">
-<h3>جرابات</h3>
-</a>
-
-<a href="accessories.html" class="category-card">
-<img src="images/accessories.jpg">
-<h3>إكسسوارات</h3>
-</a>
-
-<a href="decor.html" class="category-card">
-<img src="images/decor.jpg">
-<h3>ديكورات</h3>
-</a>
-
-<a href="watches.html" class="category-card">
-<img src="images/watches.jpg">
-<h3>ساعات</h3>
-</a>
-
-<a href="offers.html" class="category-card">
-<img src="images/offers.jpg">
-<h3>عروض</h3>
-</a>
-
-</section>
-
-<section class="products-title">
-    <h2>أحدث المنتجات</h2>
-</section>
-<section class="products">
-
-<div class="card">
-<img src="images/shemagh-case.jpg">
-<h3>جراب آيفون So Cool</h3>
-<p>300 جنيه</p>
-<button onclick="addToCart('جراب آيفون So Cool',300)">أضف للسلة</button>
-</div>
-
-<div class="card">
-<img src="images/travis-case.jpg">
-<h3>جراب آيفون ترافيس سكوت</h3>
-<p>200 جنيه</p>
-<button onclick="addToCart('جراب آيفون ترافيس سكوت',200)">أضف للسلة</button>
-</div>
-
-<div class="card">
-<img src="images/socool-case.jpg">
-<h3>جراب آيفون بورش ريسنج</h3>
-<p>300 جنيه</p>
-<button onclick="addToCart('جراب آيفون بورش ريسنج',300)">أضف للسلة</button>
-</div>
-
-<div class="card">
-<img src="images/aramid-case.jpg">
-<h3>جراب كاربون فايبر أراميد S25 Ultra</h3>
-<p>300 جنيه</p>
-<button onclick="addToCart('جراب كاربون فايبر أراميد',300)">أضف للسلة</button>
-</div>
-
-<div class="card">
-<img src="images/bracelet.jpg">
-<h3>سوار معصم كاجوال</h3>
-<p>200 جنيه</p>
-<button onclick="addToCart('سوار معصم كاجوال',200)">أضف للسلة</button>
-</div>
-
-<div class="card">
-<img src="images/glasses-black.jpg">
-<h3>Black Fashion Glasses</h3>
-<p>400 جنيه</p>
-<button onclick="addToCart('Black Fashion Glasses',400)">أضف للسلة</button>
-</div>
-
-<div class="card">
-<img src="images/glasses-geo.jpg">
-<h3>Geometric Fashion Sunglasses</h3>
-<p>400 جنيه</p>
-<button onclick="addToCart('Geometric Fashion Sunglasses',400)">أضف للسلة</button>
-</div>
-
-<div class="card">
-<img src="images/women-watch.jpg">
-<h3>Luxury Women's Watch</h3>
-<p>500 جنيه</p>
-<button onclick="addToCart('Luxury Womens Watch',500)">أضف للسلة</button>
-</div>
-
-<div class="card">
-<img src="images/business-watch.jpg">
-<h3>Business Watch For Men</h3>
-<p>900 جنيه</p>
-<button onclick="addToCart('Business Watch For Men',900)">أضف للسلة</button>
-</div>
-
-<div class="card">
-<img src="images/ninja-model.jpg">
-<h3>Model Kawasaki Ninja H2R</h3>
-<p>600 جنيه</p>
-<button onclick="addToCart('Model Kawasaki Ninja H2R',600)">أضف للسلة</button>
-</div>
-
-<div class="card">
-<img src="images/porsche-model.jpg">
-<h3>Model Porsche GT3 RS</h3>
-<p>700 جنيه</p>
-<button onclick="addToCart('Model Porsche GT3 RS',700)">أضف للسلة</button>
-</div>
-
-<div class="card">
-<img src="images/bmw-model.jpg">
-<h3>Model BMW M3</h3>
-<p>700 جنيه</p>
-<button onclick="addToCart('Model BMW M3',700)">أضف للسلة</button>
-</div>
-
-</section>
-
-<div class="whatsapp-box">
-
-<h3>تواصل معنا</h3>
-
-<a href="https://wa.me/201095354087">
-
-+20 10 95354087
-
-</a>
-
-<a href="https://wa.me/201070797515">
-
-+20 107 079 7515
-
-</a>
-
-</div>
-<section class="features-section">
-
-<div class="feature">
-🚚
-<h3>شحن سريع</h3>
-<p>شحن لجميع محافظات مصر</p>
-</div>
-
-<div class="feature">
-💰
-<h3>الدفع عند الاستلام</h3>
-<p>استلم المنتج ثم ادفع</p>
-</div>
-
-<div class="feature">
-🛡️
-<h3>منتجات أصلية</h3>
-<p>جودة مضمونة 100%</p>
-</div>
-
-<div class="feature">
-📞
-<h3>دعم العملاء</h3>
-<p>متواجدون للرد على استفساراتك</p>
-</div>
-
-</section>
-<footer>
-
-© 2026 5AMSA STORE
-
-</footer>
-
-<script src="script.js"></script>
-
-<div class="whatsapp-order">
-<button onclick="sendWhatsApp()">
-إرسال الطلب على واتساب
-</button>
-</div>
-
-<script src="script.js"></script>
-<script src="cart.js"></script>
-
-<div class="cart-icon">
-    🛒 <span id="cart-count">0</span>
-</div>
+    <!-- سكربتات التشغيل والدعم للسلة والواتساب -->
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
 
 </body>
 </html>
