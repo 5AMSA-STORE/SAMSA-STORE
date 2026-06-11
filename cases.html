@@ -8,16 +8,12 @@
 </head>
 <body>
 
-<!-- شريط السوشيال ميديا العلوي بعد تنظيف كلمات الشحن والدفع -->
-<div class="top-bar-container">
-    <div class="social-icons">
-        <span class="follow-us">تابعنا على</span>
-        <a href="https://www.facebook.com/share/18eer2g4Vh/?mibextid=LQQJ4d"><i class="fab fa-facebook-f"></i></a>
-        <!-- ضيف هنا أيقونات الانستجرام والتيك توك لو حابب بنفس الطريقة -->
-    </div>
+<div class="top-bar">
+    <span>شحن لجميع المحافظات</span>
+    <span>الدفع عند الاستلام</span>
+    <span>منتجات مميزة</span>
 </div>
 
-<!-- الهيدر النظيف والمظبوط بدون تكرار -->
 <header>
     <div class="logo">
         <h1>5AMSA STORE</h1>
@@ -30,64 +26,60 @@
     </div>
 </header>
 
-<!-- قائمة التنقل بين الأقسام -->
 <nav>
+    <a href="index.html">الرئيسية</a>
     <a href="cases.html" class="active">جرابات</a>
     <a href="accessories.html">إكسسوارات</a>
     <a href="decor.html">ديكورات</a>
     <a href="offers.html">عروض</a>
 </nav>
 
-<!-- 🎯 هنا مكان بنر صورة قسم الجرابات الصح! (تحت المنيو وفوق المنتجات علطول) -->
+<!-- بنر صورة قسم الجرابات الجاهز -->
 <div class="main-category-banner">
     <img src="banner-cases.jpg" alt="بـنـر الجرابات" class="banner-img-fluid">
 </div>
 
-<!-- قسم المنتجات -->
 <section class="products">
     <div class="card">
         <img src="images/shemagh-case.jpg">
         <h3>جراب آيفون So Cool</h3>
         <p>300 جنيه</p>
-        <button onclick="addToCart('جراب آيفون So Cool',300)">أضف للسلة</button>
+        <button onclick="addToCart('جراب آيفون So Cool', 300)">أضف للسلة</button>
     </div>
-
     <div class="card">
         <img src="images/travis-case.jpg">
         <h3>جراب آيفون ترافيس سكوت</h3>
         <p>200 جنيه</p>
-        <button onclick="addToCart('جراب آيفون ترافيس سكوت',200)">أضف للسلة</button>
+        <button onclick="addToCart('جراب آيفون ترافيس سكوت', 200)">أضف للسلة</button>
     </div>
-
     <div class="card">
         <img src="images/socool-case.jpg">
         <h3>جراب آيفون بورش ريسنج</h3>
         <p>300 جنيه</p>
-        <button onclick="addToCart('جراب آيفون بورش ريسنج',300)">أضف للسلة</button>
+        <button onclick="addToCart('جراب آيفون بورش ريسنج', 300)">أضف للسلة</button>
     </div>
-
     <div class="card">
         <img src="images/aramid-case.jpg">
         <h3>جراب كاربون فايبر أراميد S25 Ultra</h3>
         <p>300 جنيه</p>
-        <button onclick="addToCart('جراب كاربون فايبر أراميد',300)">أضف للسلة</button>
+        <button onclick="addToCart('جراب كاربون فايبر أراميد S25 Ultra', 300)">أضف للسلة</button>
     </div>
 </section>
 
-<!-- صندوق التواصل واتساب السفلي -->
 <div class="whatsapp-box">
     <h3>تواصل معنا</h3>
     <a href="https://wa.me/201095354087">+20 10 95354087</a>
     <a href="https://wa.me/201070797515">+20 107 079 7515</a>
 </div>
 
-<!-- الفوتر -->
 <footer>
     ©️ 2026 5AMSA STORE
 </footer>
 
 <div class="whatsapp-order">
-    <button onclick="sendWhatsApp()">إرسال الطلب على واتساب</button>
+    <a href="https://wa.me/201095354087" target="_blank">
+        <button>إرسال الطلب على واتساب</button>
+    </a>
 </div>
 
 <script src="script.js"></script>

@@ -4,40 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAMSA STORE - سلة المشتريات</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f9f9f9; color: #333; }
-        header { background-color: #4a1521; color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
-        header h1 { margin: 0; font-size: 24px; }
-        .nav-links { display: flex; gap: 15px; }
-        .nav-links a { color: white; text-decoration: none; padding: 8px 15px; border-radius: 5px; background-color: #5d1b2a; transition: 0.3s; }
-        .nav-links a:hover { background-color: #732234; }
-        
         .cart-container { max-width: 800px; margin: 40px auto; padding: 20px; background: white; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         .cart-title { border-bottom: 2px solid #4a1521; padding-bottom: 10px; color: #4a1521; margin-bottom: 20px; }
         .empty-message { text-align: center; padding: 40px 20px; color: #777; font-size: 18px; }
-        
-        footer { background: #111; color: #ccc; text-align: center; padding: 20px; margin-top: 40px; font-size: 14px; position: fixed; bottom: 0; width: 100%; }
+        .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 15px; border-bottom: 1px solid #eee; }
+        .remove-btn { background: #ff0055; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        .cart-summary { margin-top: 20px; padding-top: 20px; border-top: 2px solid #eee; text-align: left; }
+        .checkout-btn { background: #25D366; color: white; border: none; padding: 12px 30px; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; width: 100%; }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>SAMSA STORE</h1>
-        <div class="nav-links">
-            <a href="index.html">الرئيسية</a>
-            <a href="cases.html">جرابات</a>
-            <a href="#">إكسسوارات</a>
-            <a href="#">ديكورات</a>
-            <a href="cart.html" style="background-color: #ffebd6; color: #4a1521; font-weight: bold;">سلة المشتريات 🛒</a>
+        <div class="logo"><h1>5AMSA STORE</h1></div>
+        <div class="search"><input type="text" placeholder="ابحث عن منتج..."></div>
+        <div class="cart-icon" onclick="window.location.href='cart.html'">
+            🛒 <span id="cart-count">0</span>
         </div>
     </header>
 
+    <nav>
+        <a href="index.html">الرئيسية</a>
+        <a href="cases.html">جرابات</a>
+        <a href="accessories.html">إكسسوارات</a>
+        <a href="decor.html">ديكورات</a>
+        <a href="offers.html">عروض</a>
+    </nav>
+
     <div class="cart-container">
         <h2 class="cart-title">سلة المشتريات الخاصة بك</h2>
-        <div class="empty-message">
-            🛒 السلة فارغة حالياً. اذهب لصفحة الأقسام وأضف بعض المنتجات!
+        <div id="cart-items-wrapper">
+            <div class="empty-message">🛒 السلة فارغة حالياً.</div>
+        </div>
+        <div class="cart-summary" id="cart-summary-box" style="display: none;">
+            <h3>إجمالي الحساب: <span id="cart-total-amount">0</span> جنيه</h3>
+            <button class="checkout-btn" onclick="sendWhatsAppOrder()">تأكيد الطلب عبر واتساب 💬</button>
         </div>
     </div>
 
+<script src="script.js"></script>
+<script src="cart.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() { displayCartItems(); });
+    function displayCartItems() {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let wrapper = document.getElementById("cart-items-wrapper");
+        let summaryBox = document.getElementById("cart-summary-box");
+        let totalAmountSpan = document.getElementById("cart-total-amount");
+        let countSpan = document.getElementById("cart-count");
+        if(countSpan) countSpan.innerText = cart.length;
+        if (cart.length === 0) {
+            wrapper.innerHTML = `<div class="empty-message">🛒 السلة فارغة حالياً.</div>`;
+            summaryBox.style.display = "none";
+            return;
+        }
+        wrapper.innerHTML = "";
+        summaryBox.style.display = "block";
+        let total = 0;
+        cart.forEach((item, index) => {
+            total += Number(item.price);
+            wrapper.innerHTML += `
+                <div class="cart-item">
+                    <div><h4>${item.name}</h4><p>${item.price} جنيه</p></div>
+                    <button class="remove-btn" onclick="removeFromCartPage(${index})">حذف ❌</button>
+                </div>`;
+        });
+        totalAmountSpan.innerText = total;
+    }
+    function removeFromCartPage(index) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.splice(index, 1);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        displayCartItems();
+    }
+    function sendWhatsAppOrder() {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let message = "طلب جديد من 5AMSA STORE:\n\n";
+        let total = 0;
+        cart.forEach((item, index) => { message += `${index + 1}- ${item.name} (${item.price} جنيه)\n`; total += Number(item.price); });
+        message += `\n💰 الإجمالي: ${total} جنيه`;
+        window.open(`https://wa.me/201095354087?text=${encodeURIComponent(message)}`, "_blank");
+    }
+</script>
 </body>
 </html>

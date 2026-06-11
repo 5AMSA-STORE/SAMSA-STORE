@@ -3,20 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إكسسوارات وساعات - 5AMSA STORE</title>
+    <title>إكسسوارات - 5AMSA STORE</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- شريط السوشيال ميديا العلوي -->
-<div class="top-bar-container">
-    <div class="social-icons">
-        <span class="follow-us">تابعنا على</span>
-        <a href="https://www.facebook.com/share/18eer2g4Vh/?mibextid=LQQJ4d"><i class="fab fa-facebook-f"></i></a>
-    </div>
+<div class="top-bar">
+    <span>شحن لجميع المحافظات</span>
+    <span>الدفع عند الاستلام</span>
+    <span>منتجات مميزة</span>
 </div>
 
-<!-- الهيدر النظيف المظبوط وفيه السلة شغالة -->
 <header>
     <div class="logo">
         <h1>5AMSA STORE</h1>
@@ -29,66 +26,60 @@
     </div>
 </header>
 
-<!-- قائمة التنقل بين الأقسام (بعد حذف قسم الساعات) -->
 <nav>
+    <a href="index.html">الرئيسية</a>
     <a href="cases.html">جرابات</a>
     <a href="accessories.html" class="active">إكسسوارات</a>
     <a href="decor.html">ديكورات</a>
     <a href="offers.html">عروض</a>
 </nav>
 
-<!-- بنر صورة قسم الإكسسوارات -->
+<!-- بنر صورة قسم الإكسسوارات الجاهز -->
 <div class="main-category-banner">
     <img src="banner-accessories.jpg" alt="بـنـر الإكسسوارات" class="banner-img-fluid">
 </div>
 
-<!-- قسم المنتجات (مدمج فيه الإكسسوارات والساعات سوا) -->
 <section class="products">
-    <!-- منتجات الإكسسوارات القديمة -->
     <div class="card">
         <img src="images/bracelet.jpg">
         <h3>سوار معصم كاجوال</h3>
         <p>200 جنيه</p>
         <button onclick="addToCart('سوار معصم كاجوال', 200)">أضف للسلة</button>
     </div>
-
     <div class="card">
         <img src="images/glasses-geo.jpg">
         <h3>Geometric Fashion Sunglasses</h3>
         <p>300 جنيه</p>
         <button onclick="addToCart('Geometric Fashion Sunglasses', 300)">أضف للسلة</button>
     </div>
-
-    <!-- ⌚ كروت الساعات اللي انضمت للقسم جديد -->
     <div class="card">
-        <img src="images/watch1.jpg" alt="ساعة">
-        <h3>ساعة يد Luxury فخمة</h3>
-        <p>450 جنيه</p>
-        <button onclick="addToCart('ساعة يد Luxury فخمة', 450)">أضف للسلة</button>
+        <img src="images/business-watch.jpg">
+        <h3>Business Watch For Men</h3>
+        <p>900 جنيه</p>
+        <button onclick="addToCart('Business Watch For Men', 900)">أضف للسلة</button>
     </div>
-
     <div class="card">
-        <img src="images/watch2.jpg" alt="ساعة">
-        <h3>ساعة Smart الرياضية الذكية</h3>
-        <p>600 جنيه</p>
-        <button onclick="addToCart('ساعة Smart الرياضية الذكية', 600)">أضف للسلة</button>
+        <img src="images/women-watch.jpg">
+        <h3>Luxury Women's Watch</h3>
+        <p>500 جنيه</p>
+        <button onclick="addToCart('Luxury Women\'s Watch', 500)">أضف للسلة</button>
     </div>
 </section>
 
-<!-- صندوق التواصل واتساب السفلي -->
 <div class="whatsapp-box">
     <h3>تواصل معنا</h3>
     <a href="https://wa.me/201095354087">+20 10 95354087</a>
     <a href="https://wa.me/201070797515">+20 107 079 7515</a>
 </div>
 
-<!-- الفوتر -->
 <footer>
     ©️ 2026 5AMSA STORE
 </footer>
 
 <div class="whatsapp-order">
-    <button onclick="sendWhatsApp()">إرسال الطلب على واتساب</button>
+    <a href="https://wa.me/201095354087" target="_blank">
+        <button>إرسال الطلب على واتساب</button>
+    </a>
 </div>
 
 <script src="script.js"></script>

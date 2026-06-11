@@ -8,15 +8,12 @@
 </head>
 <body>
 
-<!-- شريط السوشيال ميديا العلوي -->
-<div class="top-bar-container">
-    <div class="social-icons">
-        <span class="follow-us">تابعنا على</span>
-        <a href="https://www.facebook.com/share/18eer2g4Vh/?mibextid=LQQJ4d"><i class="fab fa-facebook-f"></i></a>
-    </div>
+<div class="top-bar">
+    <span>شحن لجميع المحافظات</span>
+    <span>الدفع عند الاستلام</span>
+    <span>منتجات مميزة</span>
 </div>
 
-<!-- الهيدر النظيف المظبوط وفيه السلة -->
 <header>
     <div class="logo">
         <h1>5AMSA STORE</h1>
@@ -29,68 +26,42 @@
     </div>
 </header>
 
-<!-- قائمة التنقل بين الأقسام -->
 <nav>
+    <a href="index.html">الرئيسية</a>
     <a href="cases.html">جرابات</a>
     <a href="accessories.html">إكسسوارات</a>
     <a href="decor.html">ديكورات</a>
     <a href="offers.html" class="active">عروض</a>
 </nav>
 
-<!-- 🎯 بنر صورة قسم العروض (تحت المنيو وفوق المنتجات علطول) -->
+<!-- بنر صورة قسم العروض الجاهز -->
 <div class="main-category-banner">
-    <img src="banner-offers.jpg" alt="بـنـر العروض والخصومات" class="banner-img-fluid">
+    <img src="banner-offers.jpg" alt="بـنـر العروض" class="banner-img-fluid">
 </div>
 
-<!-- قسم منتجات العروض والخصومات الطرش -->
 <section class="products">
     <div class="card">
-        <div class="sale-badge" style="position: absolute; background: #ff0055; color: #fff; padding: 4px 10px; border-radius: 4px; font-size: 12px; font-weight: bold; margin: 10px;">خصم 25%</div>
-        <img src="images/offer1.jpg" alt="عرض خاص">
-        <h3>عرض الـ 3 جرابات ستايل</h3>
-        <p><del style="color: #888; font-size: 14px; margin-left: 8px;">600 جنيه</del> 450 جنيه</p>
-        <button onclick="addToCart('عرض الـ 3 جرابات ستايل', 450)">أضف للسلة</button>
-    </div>
-
-    <div class="card">
-        <div class="sale-badge" style="position: absolute; background: #ff0055; color: #fff; padding: 4px 10px; border-radius: 4px; font-size: 12px; font-weight: bold; margin: 10px;">عرض لفترة محدودة</div>
-        <img src="images/offer2.jpg" alt="عرض خاص">
-        <h3>بكج الحماية المتكامل 5 في 1</h3>
-        <p><del style="color: #888; font-size: 14px; margin-left: 8px;">400 جنيه</del> 299 جنيه</p>
-        <button onclick="addToCart('بكج الحماية المتكامل 5 في 1', 299)">أضف للسلة</button>
-    </div>
-
-    <div class="card">
-        <div class="sale-badge" style="position: absolute; background: #ff0055; color: #fff; padding: 4px 10px; border-radius: 4px; font-size: 12px; font-weight: bold; margin: 10px;">قطعتين بسعر واحدة</div>
-        <img src="images/offer3.jpg" alt="عرض خاص">
-        <h3>طقم إكسسوار + ساعة كاجوال</h3>
-        <p><del style="color: #888; font-size: 14px; margin-left: 8px;">700 جنيه</del> 500 جنيه</p>
-        <button onclick="addToCart('طقم إكسسوار + ساعة كاجوال', 500)">أضف للسلة</button>
-    </div>
-
-    <div class="card">
-        <div class="sale-badge" style="position: absolute; background: #ff0055; color: #fff; padding: 4px 10px; border-radius: 4px; font-size: 12px; font-weight: bold; margin: 10px;">أقوى توفير</div>
-        <img src="images/offer4.jpg" alt="عرض خاص">
-        <h3>ميكس ديكور الغرفة المضيء</h3>
-        <p><del style="color: #888; font-size: 14px; margin-left: 8px;">550 جنيه</del> 390 جنيه</p>
-        <button onclick="addToCart('ميكس ديكور الغرفة المضيء', 390)">أضف للسلة</button>
+        <img src="images/porsche-model.jpg">
+        <h3>عرض باكج بورش الكامل</h3>
+        <p>500 جنيه</p>
+        <button onclick="addToCart('عرض باكج بورش الكامل', 500)">أضف للسلة</button>
     </div>
 </section>
 
-<!-- صندوق التواصل واتساب السفلي -->
 <div class="whatsapp-box">
     <h3>تواصل معنا</h3>
     <a href="https://wa.me/201095354087">+20 10 95354087</a>
     <a href="https://wa.me/201070797515">+20 107 079 7515</a>
 </div>
 
-<!-- الفوتر -->
 <footer>
     ©️ 2026 5AMSA STORE
 </footer>
 
 <div class="whatsapp-order">
-    <button onclick="sendWhatsApp()">إرسال الطلب على واتساب</button>
+    <a href="https://wa.me/201095354087" target="_blank">
+        <button>إرسال الطلب على واتساب</button>
+    </a>
 </div>
 
 <script src="script.js"></script>

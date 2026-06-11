@@ -8,15 +8,12 @@
 </head>
 <body>
 
-<!-- شريط السوشيال ميديا العلوي -->
-<div class="top-bar-container">
-    <div class="social-icons">
-        <span class="follow-us">تابعنا على</span>
-        <a href="https://www.facebook.com/share/18eer2g4Vh/?mibextid=LQQJ4d"><i class="fab fa-facebook-f"></i></a>
-    </div>
+<div class="top-bar">
+    <span>شحن لجميع المحافظات</span>
+    <span>الدفع عند الاستلام</span>
+    <span>منتجات مميزة</span>
 </div>
 
-<!-- الهيدر النظيف المظبوط وفيه السلة -->
 <header>
     <div class="logo">
         <h1>5AMSA STORE</h1>
@@ -29,64 +26,42 @@
     </div>
 </header>
 
-<!-- قائمة التنقل بين الأقسام -->
 <nav>
+    <a href="index.html">الرئيسية</a>
     <a href="cases.html">جرابات</a>
     <a href="accessories.html">إكسسوارات</a>
     <a href="decor.html" class="active">ديكورات</a>
     <a href="offers.html">عروض</a>
 </nav>
 
-<!-- 🎯 بنر صورة قسم الديكورات (تحت المنيو وفوق المنتجات علطول) -->
+<!-- بنر صورة قسم الديكورات الجاهز -->
 <div class="main-category-banner">
-    <img src="banner-decor.jpg" alt="بـنـر قسم الديكورات" class="banner-img-fluid">
+    <img src="banner-decor.jpg" alt="بـنـر الديكورات" class="banner-img-fluid">
 </div>
 
-<!-- قسم منتجات الديكور (حطيتلك أمثلة تقدر تغير الصور والأسعار براحتك) -->
 <section class="products">
     <div class="card">
-        <img src="images/decor1.jpg" alt="منتج ديكور">
-        <h3>تابلوه مودرن رايق</h3>
+        <img src="images/decor.jpg">
+        <h3>تابلوه مودرن فخم</h3>
         <p>250 جنيه</p>
-        <button onclick="addToCart('تابلوه مودرن رايق', 250)">أضف للسلة</button>
-    </div>
-
-    <div class="card">
-        <img src="images/decor2.jpg" alt="منتج ديكور">
-        <h3>وحدة إضاءة نيون كريتيف</h3>
-        <p>450 جنيه</p>
-        <button onclick="addToCart('وحدة إضاءة نيون كريتيف', 450)">أضف للسلة</button>
-    </div>
-
-    <div class="card">
-        <img src="images/decor3.jpg" alt="منتج ديكور">
-        <h3>ساعة حائط ديجيتال مضيئة</h3>
-        <p>350 جنيه</p>
-        <button onclick="addToCart('ساعة حائط ديجيتال مضيئة', 350)">أضف للسلة</button>
-    </div>
-
-    <div class="card">
-        <img src="images/decor4.jpg" alt="منتج ديكور">
-        <h3>أباجورة مكتب مودرن</h3>
-        <p>290 جنيه</p>
-        <button onclick="addToCart('أباجورة مكتب مودرن', 290)">أضف للسلة</button>
+        <button onclick="addToCart('تابلوه مودرن فخم', 250)">أضف للسلة</button>
     </div>
 </section>
 
-<!-- صندوق التواصل واتساب السفلي -->
 <div class="whatsapp-box">
     <h3>تواصل معنا</h3>
     <a href="https://wa.me/201095354087">+20 10 95354087</a>
     <a href="https://wa.me/201070797515">+20 107 079 7515</a>
 </div>
 
-<!-- الفوتر -->
 <footer>
     ©️ 2026 5AMSA STORE
 </footer>
 
 <div class="whatsapp-order">
-    <button onclick="sendWhatsApp()">إرسال الطلب على واتساب</button>
+    <a href="https://wa.me/201095354087" target="_blank">
+        <button>إرسال الطلب على واتساب</button>
+    </a>
 </div>
 
 <script src="script.js"></script>
