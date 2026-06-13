@@ -1218,17 +1218,18 @@ padding:2px 7px;
 font-size:12px;
 font-weight:bold;
 }
-/* إخفاء الدائرة المقرفة اللي تحت بس */
+/* 1️⃣ إخفاء الدائرة البايظة اللي تحت بس */
 div.floating-whatsapp, 
-a.floating-whatsapp,
+a.floating-whatsapp, 
 .floating-whatsapp {
     display: none !important;
 }
 
-/* تثبيت سلة الأقسام فوق عشان تفضل ظاهرة طرش وزي ما هي */
-.main-header .cart-box-container,
-.main-header .cart-icon-wrapper {
-    display: flex !important;
+/* 2️⃣ إظهار زراير "أضف للسلة" جوه كروت المنتجات ومنع إخفائها نهائياً */
+.card button, 
+.products .card button,
+button[onclick*="addToCart"] {
+    display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
 }
