@@ -1218,18 +1218,3 @@ padding:2px 7px;
 font-size:12px;
 font-weight:bold;
 }
-/* 1️⃣ إخفاء الدائرة البايظة اللي تحت بس */
-div.floating-whatsapp, 
-a.floating-whatsapp, 
-.floating-whatsapp {
-    display: none !important;
-}
-
-/* 2️⃣ إظهار زراير "أضف للسلة" جوه كروت المنتجات ومنع إخفائها نهائياً */
-.card button, 
-.products .card button,
-button[onclick*="addToCart"] {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-}
