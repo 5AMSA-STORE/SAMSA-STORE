@@ -1218,7 +1218,17 @@ padding:2px 7px;
 font-size:12px;
 font-weight:bold;
 }
-/* إخفاء الدائرة العايمة البايظة نهائياً */
-.floating-whatsapp, .floating-cart, [class*="floating"] {
+/* إخفاء الدائرة المقرفة اللي تحت بس */
+div.floating-whatsapp, 
+a.floating-whatsapp,
+.floating-whatsapp {
     display: none !important;
+}
+
+/* تثبيت سلة الأقسام فوق عشان تفضل ظاهرة طرش وزي ما هي */
+.main-header .cart-box-container,
+.main-header .cart-icon-wrapper {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
