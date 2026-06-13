@@ -46,3 +46,29 @@ setTimeout(()=>{
 count.style.transform="scale(1)";
 },200);
 });
+const searchInput = document.getElementById("searchInput");
+
+if(searchInput){
+
+searchInput.addEventListener("keyup", function(){
+
+let searchValue = searchInput.value.toLowerCase();
+
+let products = document.querySelectorAll(".card");
+
+products.forEach(product => {
+
+let productName = product.querySelector("h3").innerText.toLowerCase();
+
+if(productName.includes(searchValue)){
+product.style.display = "block";
+}
+else{
+product.style.display = "none";
+}
+
+});
+
+});
+
+}

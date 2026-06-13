@@ -15,7 +15,7 @@ function addToCart(name, price) {
 
     updateCart();
 
-    alert("تمت إضافة المنتج للسلة");
+    showToast();
 }
 
 // تحديث السلة والعدادات
@@ -140,4 +140,15 @@ function sendWhatsApp() {
         `https://wa.me/201095354087?text=${message}`,
         "_blank"
     );
+}
+function showToast(){
+let toast=document.getElementById("toast");
+
+if(!toast) return;
+
+toast.style.display="block";
+
+setTimeout(()=>{
+toast.style.display="none";
+},2000);
 }
