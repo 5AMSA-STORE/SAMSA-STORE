@@ -3,81 +3,141 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 // تشغيل التحديث أول ما الصفحة تفتح
 window.addEventListener("DOMContentLoaded", updateCart);
 
-// 1️⃣ دالة إضافة منتج للسلة
+// إضافة منتج للسلة
 function addToCart(name, price) {
-    cart.push({ name: name, price: price });
+
+    cart.push({
+        name: name,
+        price: price
+    });
+
     localStorage.setItem("cart", JSON.stringify(cart));
+
     updateCart();
+
     alert("تمت إضافة المنتج للسلة");
 }
 
-// 2️⃣ دالة تحديث وعرض السلة والعداد
+// تحديث السلة والعدادات
 function updateCart() {
+
+    // عداد السلة اللي فوق
+    let count = document.getElementById("cart-count");
+
+    if (count) {
+        count.innerText = cart.length;
+    }
+
+    // عداد السلة العائمة
+    let floating = document.getElementById("cart-count-floating");
+
+    if (floating) {
+        floating.innerText = cart.length;
+    }
+
     let cartList = document.getElementById("cart-list");
     let cartTotal = document.getElementById("cart-total");
 
-    // السطرين دول بيلفوا على أي عداد في الصفحة شايل id="cart-count" ويحدثوه فوراً
-    let cartCounts = document.querySelectorAll("#cart-count");
-    cartCounts.forEach(count => {
-        count.innerText = cart.length;
-    });
-
-    if (!cartList) return; 
+    if (!cartList) return;
 
     if (cart.length === 0) {
-        cartList.innerHTML = "<h3 style='text-align:center; padding:20px; color:#999;'>السلة فارغة حالياً 🛒</h3>";
-        if (cartTotal) cartTotal.innerText = "0";
+
+        cartList.innerHTML =
+        "<h3 style='text-align:center;padding:20px;color:#999;'>السلة فارغة حالياً 🛒</h3>";
+
+        if (cartTotal) {
+            cartTotal.innerText = "0";
+        }
+
         return;
     }
 
     cartList.innerHTML = "";
+
     let total = 0;
 
     cart.forEach((item, index) => {
-        total += item.price;
+
+        total += Number(item.price);
+
         cartList.innerHTML += `
-            <div class="cart-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding: 10px; border-bottom: 1px solid #eee;">
-                <span>${item.name} - ${item.price} جنيه</span>
-                <button onclick="removeFromCart(${index})" style="background: none; border: none; color: red; font-weight: bold; cursor: pointer; font-size: 16px;">❌</button>
-            </div>
+        <div class="cart-item" style="display:flex;justify-content:space-between;align-items:center;padding:12px;border-bottom:1px solid #eee;">
+            <span>${item.name} - ${item.price} جنيه</span>
+
+            <button
+            onclick="removeFromCart(${index})"
+            style="
+            background:red;
+            color:white;
+            border:none;
+            padding:6px 12px;
+            border-radius:6px;
+            cursor:pointer;">
+            حذف
+            </button>
+        </div>
         `;
     });
 
-    if (cartTotal) cartTotal.innerText = total;
-}
-// 3️⃣ دالة مسح منتج معين من السلة بـ الـ X
-function removeFromCart(index) {
-    cart.splice(index, 1); 
-    localStorage.setItem("cart", JSON.stringify(cart)); 
-    updateCart(); 
+    if (cartTotal) {
+        cartTotal.innerText = total;
+    }
 }
 
-// 4️⃣ دالة إرسال الطلب للواتساب
+// حذف منتج من السلة
+function removeFromCart(index) {
+
+    cart.splice(index, 1);
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    updateCart();
+}
+
+// إرسال الطلب واتساب
 function sendWhatsApp() {
-    let name = document.getElementById("name") ? document.getElementById("name").value : "";
-    let phone = document.getElementById("phone") ? document.getElementById("phone").value : "";
-    let address = document.getElementById("address") ? document.getElementById("address").value : "";
-    
+
+    let name =
+        document.getElementById("name")
+        ? document.getElementById("name").value
+        : "";
+
+    let phone =
+        document.getElementById("phone")
+        ? document.getElementById("phone").value
+        : "";
+
+    let address =
+        document.getElementById("address")
+        ? document.getElementById("address").value
+        : "";
+
     if (cart.length === 0) {
-        alert("السلة فارغة المحتوى!");
+        alert("السلة فارغة");
         return;
     }
 
     if (!name || !phone || !address) {
-        alert("من فضلك أكمل جميع بيانات الطلب أولاً");
+        alert("من فضلك أكمل جميع البيانات");
         return;
     }
-    
-    let message = "طلب جديد من 5AMSA STORE:\n\n";
-    cart.forEach((item) => {
-        message += `- ${item.name} (${item.price} جنيه)\n`;
+
+    let message = "طلب جديد من 5AMSA STORE:%0A%0A";
+
+    cart.forEach(item => {
+        message += `• ${item.name} - ${item.price} جنيه%0A`;
     });
-    
-    let total = cart.reduce((sum, item) => sum + item.price, 0);
-    message += `\nإجمالي الحساب: ${total} جنيه\n\n`;
-    message += `الاسم: ${name}\nالرقم: ${phone}\nالعنوان: ${address}`;
-    
-    // تم الحفاظ على الرقم الجديد المكتوب في صفحتك 01095354087
-    let url = "https://wa.me/201095354087?text=" + encodeURIComponent(message);
-    window.open(url, "_blank");
+
+    let total = cart.reduce((sum, item) => sum + Number(item.price), 0);
+
+    message += `%0Aإجمالي الحساب: ${total} جنيه%0A%0A`;
+
+    message += `الاسم: ${name}%0A`;
+    message += `رقم الهاتف: ${phone}%0A`;
+    message += `العنوان: ${address}`;
+
+    window.open(
+        `https://wa.me/201095354087?text=${message}`,
+        "_blank"
+    );
 }
