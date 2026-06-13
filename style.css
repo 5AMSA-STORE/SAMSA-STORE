@@ -1218,3 +1218,7 @@ padding:2px 7px;
 font-size:12px;
 font-weight:bold;
 }
+/* إخفاء الدائرة العايمة البايظة نهائياً */
+.floating-whatsapp, .floating-cart, [class*="floating"] {
+    display: none !important;
+}
