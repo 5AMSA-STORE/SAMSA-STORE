@@ -15,3 +15,34 @@ current = 0;
 slides[current].classList.add("active");
 
 },3000);
+function moveSlide(button, direction) {
+    const container = button.parentElement;
+    const images = container.querySelectorAll('.slides img');
+    let activeIndex = 0;
+
+    // معرفة الصورة الظاهرة حالياً
+    images.forEach((img, index) => {
+        if (img.classList.contains('active')) {
+            activeIndex = index;
+        }
+    });
+
+    // إخفاء الصورة الحالية
+    images[activeIndex].classList.remove('active');
+
+    // حساب مكان الصورة الجديدة
+    let newIndex = activeIndex + direction;
+    if (newIndex >= images.length) newIndex = 0;
+    if (newIndex < 0) newIndex = images.length - 1;
+
+    // إظهار الصورة الجديدة
+    images[newIndex].classList.add('active');
+}
+cartCounts.forEach(count => {
+count.innerText = cart.length;
+count.style.transform="scale(1.3)";
+
+setTimeout(()=>{
+count.style.transform="scale(1)";
+},200);
+});
