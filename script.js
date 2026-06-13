@@ -38,14 +38,6 @@ function moveSlide(button, direction) {
     // إظهار الصورة الجديدة
     images[newIndex].classList.add('active');
 }
-cartCounts.forEach(count => {
-count.innerText = cart.length;
-count.style.transform="scale(1.3)";
-
-setTimeout(()=>{
-count.style.transform="scale(1)";
-},200);
-});
 const searchInput = document.getElementById("searchInput");
 
 if(searchInput){
