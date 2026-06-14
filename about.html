@@ -139,13 +139,15 @@
 
         .info-box {
             background: #1c1c22;
-            padding: 35px 30px;
+            padding: 30px 25px; 
             border-radius: 24px;
             box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.03);
             position: relative;
             overflow: hidden;
+            box-sizing: border-box; 
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: right; 
         }
 
         .info-box::before {
@@ -164,19 +166,21 @@
         }
 
         .info-box h3 {
-            font-size: 22px;
+            font-size: 20px;
             margin-top: 0;
+            margin-bottom: 15px;
             color: #ffffff;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             font-weight: 700;
+            flex-wrap: wrap; 
         }
 
         .info-box p {
-            font-size: 15px;
+            font-size: 14px;
             color: #cccccc;
-            line-height: 1.75;
+            line-height: 1.7;
             margin-bottom: 0;
         }
     </style>
