@@ -87,33 +87,34 @@
             text-align: center !important;
         }
 
-        /* 5. السطر الثالث: كبسولة السلة الاحترافية في المنتصف */
+        /* 5. السطر الثالث: السلة العادية النظيفة بدون أي ألوان غريبة */
         .main-header .cart-box-container {
             order: 3 !important;
             display: flex !important;
             flex-direction: row !important;
             align-items: center !important;
             justify-content: center !important;
-            gap: 8px !important;
+            gap: 6px !important;
             width: auto !important;
-            background: #800020 !important; /* لون العنابي الفخم المتناسق مع البراند */
-            padding: 8px 20px !important;
-            border-radius: 20px !important;
+            background: none !important; /* إلغاء الخلفية العنابي */
+            padding: 0 !important; /* إلغاء الحواف */
+            border: none !important; /* إلغاء الإطار */
             margin-top: 5px !important;
         }
         .main-header .cart-icon-wrapper {
-            font-size: 16px !important;
-            color: #fff !important;
+            font-size: 20px !important; /* تكبير الأيقونة سنة لتكون واضحة */
+            color: #333 !important; /* اللون العادي الداكن المتناسق مع الأبيض */
             text-decoration: none !important;
         }
         .main-header .cart-label {
-            font-size: 13px !important;
-            color: #ffffff !important;
+            font-size: 14px !important;
+            color: #333333 !important; /* كلمة السلة باللون الداكن العادي */
             display: inline !important;
+            font-weight: bold !important;
         }
         #cart-count {
-            background: #fff !important;
-            color: #800020 !important;
+            background: #800020 !important; /* دايرة الإشعار باللون العنابي بتاع اللوجو */
+            color: #fff !important;
             border-radius: 50% !important;
             padding: 1px 6px !important;
             font-size: 11px !important;
