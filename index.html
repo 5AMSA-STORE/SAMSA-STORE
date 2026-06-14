@@ -11,73 +11,85 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-    /* فرض التجاوب والسيطرة الكاملة لحل مشكلة الهيدر على الموبايل */
+    /* ==========================================
+       تنسيقات سحرية مخصصة لشاشات الموبايل فقط
+       ========================================== */
     @media (max-width: 768px) {
-        header.main-header {
+        /* إجبار الهيدر على ترتيب العناصر عمودياً تحت بعضها */
+        header.main-header, 
+        .main-header {
             display: flex !important;
-            flex-direction: column !important; /* يجبر العناصر تنزل تحت بعض نظامي */
+            flex-direction: column !important;
             align-items: center !important;
             justify-content: center !important;
-            gap: 12px !important;
+            gap: 15px !important;
             padding: 15px 10px !important;
             height: auto !important;
         }
 
-        /* السطر الأول: اللوجو ياخد السطر كامل فوق لوحده */
-        header.main-header .center-logo {
+        /* 1. اللوجو: يظهر في السطر الأول فوق بالكامل وفي المنتصف */
+        header.main-header .center-logo,
+        .main-header .center-logo {
             display: flex !important;
             justify-content: center !important;
             width: 100% !important;
-            order: 1 !important;
+            order: 1 !important; /* يضمن ظهوره أول واحد فوق */
+            margin: 0 auto !important;
         }
 
-        header.main-header .center-logo img {
+        header.main-header .center-logo img,
+        .center-logo img {
             height: 45px !important;
             width: auto !important;
         }
 
-        /* السطر الثاني: هنعمل حاجة صايعة، هنخلي البحث والسلة جمب بعض تحت اللوجو */
-        .mobile-row-container {
+        /* 2. خانة البحث: تظهر في السطر الثاني وتحمل عرض مناسب جداً */
+        header.main-header .search-box-container,
+        .search-box-container {
             display: flex !important;
-            width: 100% !important;
-            justify-content: space-between !important;
-            align-items: center !important;
-            gap: 10px !important;
-            order: 2 !important;
+            width: 90% !important;
+            max-width: 320px !important;
+            order: 2 !important; /* تظهر في السطر الثاني */
+            margin: 0 auto !important;
+            justify-content: center !important;
         }
 
-        header.main-header .search-box-container {
-            width: 65% !important;
-            margin: 0 !important;
-        }
-
-        header.main-header .search-box-container input {
+        header.main-header .search-box-container input,
+        .search-box-container input {
             width: 100% !important;
-            padding: 8px 12px !important;
-            font-size: 13px !important;
+            max-width: 100% !important;
+            padding: 10px 15px !important;
+            font-size: 14px !important;
             box-sizing: border-box !important;
+            border-radius: 25px !important; /* شكل دائري أنيق على الموبايل */
         }
 
-        header.main-header .cart-box-container {
-            width: 30% !important;
+        /* 3. صندوق السلة: يظهر في السطر الثالث أسفل البحث بتنسيق شيك */
+        header.main-header .cart-box-container,
+        .cart-box-container {
             display: flex !important;
             flex-direction: row !important;
             align-items: center !important;
             justify-content: center !important;
-            gap: 5px !important;
+            gap: 8px !important;
+            width: auto !important;
+            order: 3 !important; /* تظهر في السطر الثالث والأخير */
+            margin: 5px auto 0 auto !important;
             background: rgba(255, 255, 255, 0.05) !important;
-            padding: 6px 8px !important;
-            border-radius: 10px !important;
+            padding: 6px 16px !important;
+            border-radius: 20px !important;
             border: 1px solid rgba(255, 255, 255, 0.1) !important;
-            margin: 0 !important;
         }
 
-        header.main-header .cart-icon-wrapper {
-            font-size: 16px !important;
+        header.main-header .cart-icon-wrapper,
+        .cart-icon-wrapper {
+            font-size: 18px !important;
+            position: relative !important;
         }
 
-        header.main-header .cart-label {
-            font-size: 12px !important;
+        header.main-header .cart-label,
+        .cart-label {
+            font-size: 13px !important;
             color: #ffffff !important;
             display: inline !important;
         }
@@ -117,9 +129,17 @@
 </div>
 </div>
 
-<!-- 2. الهيدر الرئيسي المتكامل والمظبوط -->
+<!-- 2. الهيدر الرئيسي (الترتيب الأصلي المظبوط للكمبيوتر بالملي) -->
 <header class="main-header">
-    <!-- اللوجو في مكانه النظيف -->
+    <!-- اليسار خالص على الكمبيوتر: أيقونة السلة الاحترافية -->
+    <div class="cart-box-container">
+        <a href="cart.html" class="cart-icon-wrapper">
+            🛒 <span id="cart-count">0</span>
+        </a>
+        <span class="cart-label">السلة</span>
+    </div>
+
+    <!-- المنتصف على الكمبيوتر: اللوجو المدمج بالملي -->
     <div class="center-logo">
         <div class="logo-wrapper">
             <div class="logo-text-side">
@@ -130,20 +150,9 @@
         </div>
     </div>
 
-    <!-- حاوية مرنة تجمع البحث والسلة معاً على الموبايل لتوفير مساحة عمودية -->
-    <div class="mobile-row-container">
-        <!-- خانة البحث -->
-        <div class="search-box-container">
-            <input type="text" id="searchInput" placeholder="ابحث عن منتج...">
-        </div>
-
-        <!-- أيقونة السلة الاحترافية -->
-        <div class="cart-box-container">
-            <a href="cart.html" class="cart-icon-wrapper">
-                🛒 <span id="cart-count">0</span>
-            </a>
-            <span class="cart-label">السلة</span>
-        </div>
+    <!-- اليمين خالص على الكمبيوتر: خانة البحث -->
+    <div class="search-box-container">
+        <input type="text" id="searchInput" placeholder="ابحث عن منتج...">
     </div>
 </header>
 
