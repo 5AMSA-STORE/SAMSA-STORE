@@ -64,3 +64,4 @@ product.style.display = "none";
 });
 
 }
+console.log("SEARCH WORKING");
