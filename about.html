@@ -6,10 +6,10 @@
     <title>من نحن - 5AMSA STORE</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* ستايل مخصص وفخم لصفحة من نحن */
+        /* ستايل ألوان رايق ومودرن: رمادي دافئ هادي مريح للعين */
         body {
-            background-color: #0f0f12;
-            color: #ffffff;
+            background-color: #f4f4f6; /* لون أوف وايت/رمادي ناعم جداً */
+            color: #2b2b2d;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
@@ -17,34 +17,38 @@
 
         .about-hero {
             text-align: center;
-            padding: 60px 20px 40px 20px;
-            background: linear-gradient(180deg, #1a050b 0%, #0f0f12 100%);
+            padding: 70px 20px 40px 20px;
+            background: linear-gradient(180deg, #eaeaea 0%, #f4f4f6 100%);
         }
 
         .about-hero span.welcome-text {
             color: #4f0b20;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: bold;
             letter-spacing: 2px;
             text-transform: uppercase;
             display: inline-block;
+            background: rgba(79, 11, 32, 0.07);
+            padding: 6px 18px;
+            border-radius: 20px;
         }
 
         .about-hero h1 {
-            font-size: 36px;
-            margin: 10px 0 20px 0;
-            color: #fff;
+            font-size: 38px;
+            margin: 20px 0;
+            color: #1c1c1e;
+            font-weight: 800;
         }
 
         .about-hero p {
             font-size: 18px;
-            color: #b3b3b3;
-            max-width: 800px;
+            color: #4a4a4a;
+            max-width: 750px;
             margin: 0 auto;
             line-height: 1.8;
         }
 
-        /* كود سحري لمنع لخبطة الاسم الرقمي والإنجليزي وسط العربي */
+        /* حماية اسم البراند من اللخبطة */
         .brand-inline {
             display: inline-block;
             direction: ltr;
@@ -52,41 +56,43 @@
             font-weight: bold;
         }
 
-        /* الإحصائيات (100+ عميل، شحن لكل مصر) */
+        /* كروت الإحصائيات */
         .stats-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            gap: 25px;
             max-width: 1000px;
-            margin: 30px auto;
+            margin: 20px auto 40px auto;
             padding: 0 20px;
         }
 
         .stat-card {
-            background: #16161a;
-            padding: 25px;
-            border-radius: 12px;
+            background: #ffffff; /* كروت بيضاء تبرز فوق الخلفية الرمادي */
+            padding: 30px 20px;
+            border-radius: 20px;
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.01);
         }
 
         .stat-card h2 {
-            font-size: 32px;
+            font-size: 34px;
             color: #4f0b20;
-            margin: 0 0 5px 0;
+            margin: 0 0 8px 0;
+            font-weight: 700;
         }
 
         .stat-card p {
             font-size: 14px;
-            color: #a0a0a0;
+            color: #6c6c72;
             margin: 0;
+            font-weight: 500;
         }
 
-        /* الرؤية والمهمة ولماذا نحن */
+        /* كروت الرؤية والمهمة */
         .info-sections {
             max-width: 1000px;
-            margin: 50px auto;
+            margin: 40px auto 70px auto;
             padding: 0 20px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -94,38 +100,51 @@
         }
 
         .info-box {
-            background: #1c1c22;
-            padding: 30px;
-            border-radius: 16px;
-            border-top: 4px solid #4f0b20;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease;
+            background: #ffffff; /* كروت بيضاء منورة */
+            padding: 35px 30px;
+            border-radius: 24px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.01);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 5px;
+            background-color: #4f0b20; /* خط نبيتي فخم فوق كل كارت */
         }
 
         .info-box:hover {
-            transform: translateY(-5px);
+            transform: translateY(-6px);
+            box-shadow: 0 15px 40px rgba(79, 11, 32, 0.07);
         }
 
         .info-box h3 {
             font-size: 22px;
             margin-top: 0;
-            color: #fff;
+            color: #1c1c1e;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            font-weight: 700;
         }
 
         .info-box p {
             font-size: 15px;
-            color: #cccccc;
-            line-height: 1.7;
+            color: #55555a;
+            line-height: 1.75;
             margin-bottom: 0;
         }
     </style>
 </head>
 <body>
 
-    <!-- الهيدر الرئيسي بتاعك -->
     <header class="main-header">
         <div class="cart-box-container" onclick="window.location.href='cart.html'" style="cursor: pointer;">
             <a href="cart.html" class="cart-icon-wrapper">
@@ -144,14 +163,12 @@
         </div>
     </header>
 
-    <!-- محتوى الصفحة المتظبط -->
     <section class="about-hero">
         <span class="welcome-text" style="direction: ltr;">WELCOME TO 5AMSA STORE</span>
         <h1>أسلوبك يبدأ من التفاصيل</h1>
         <p>نؤمن أن التفاصيل الصغيرة تصنع الفرق، لذلك نوفر منتجات مختارة بعناية تجمع بين الأناقة والجودة والسعر المناسب في <span class="brand-inline">5AMSA STORE</span>.</p>
     </section>
 
-    <!-- الأرقام والإحصائيات الثابتة -->
     <section class="stats-container">
         <div class="stat-card">
             <h2>+100</h2>
@@ -167,19 +184,18 @@
         </div>
     </section>
 
-    <!-- الرؤية والمهمة ولماذا نحن -->
     <section class="info-sections">
         <div class="info-box">
             <h3>👁️ رؤيتنا</h3>
-            <p>نوفر منتجات مميزة بجودة عالية وتصميمات عصرية تناسب جميع الأذواق وتجعل هاتفك فريداً من نوعه.</p>
+            <p>نوفر منتجات مميزة بجودة عالية وتصميمات عصرية تناسب جميع الأذواق وتضيف لمسة شياكة فريدة لأسلوب حياتك اليومي.</p>
         </div>
         <div class="info-box">
             <h3>🎯 مهمتنا</h3>
             <p>تقديم تجربة شراء سهلة وآمنة مع أسعار مناسبة وشحن سريع لجميع المحافظات لضمان رضاكم.</p>
         </div>
         <div class="info-box">
-            <h3>🔥 لماذا <span class="brand-inline" style="color: #fff;">5AMSA STORE</span>؟</h3>
-            <p>لأننا نقدم منتجات مختارة بعناية فائقة، دعم فني سريع معك على مدار الساعة، وعروض مستمرة لا تنتهي لعملائنا.</p>
+            <h3>🔥 لماذا <span class="brand-inline">5AMSA STORE</span>؟</h3>
+            <p>لأننا نقدم تشكيلة منتجات واكسسوارات متنوعة ومختارة بعناية فائقة، مع دعم فني سريع متواصل معك، وعروض مستمرة لا تنتهي لعملائنا.</p>
         </div>
     </section>
 
