@@ -15,14 +15,18 @@
             padding: 0;
         }
 
-        /* تظبيط الهيدر الأيقوني الموحد مع اللوجو */
+        /* هيدر نظيف ورايق بدون سلة ومظبوط في النص */
         .main-header {
             display: flex;
-            justify-content: space-between;
+            justify-content: center; /* بيجيب اللوجو في النص بالملي عشان السلة اتشالت */
             align-items: center;
             padding: 15px 5%;
             background-color: #16161a; /* نفس لون الهيدر الغامق عندك */
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            z-index: 999;
+            width: 90%;
+            margin: 0 auto;
         }
 
         .center-logo .logo-wrapper {
@@ -51,38 +55,12 @@
             object-fit: contain;
         }
 
-        .cart-box-container {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .cart-icon-wrapper {
-            text-decoration: none;
-            font-size: 20px;
-            position: relative;
-        }
-
-        #cart-count {
-            position: absolute;
-            top: -8px;
-            right: -10px;
-            background-color: #ff0000;
-            color: white;
-            border-radius: 50%;
-            padding: 2px 6px;
-            font-size: 10px;
-        }
-
-        .cart-label {
-            color: #ffffff;
-        }
-
         /* محتوى الصفحة الأيقوني */
         .about-hero {
             text-align: center;
             padding: 70px 20px 40px 20px;
             background: linear-gradient(180deg, #1a050b 0%, #0f0f12 100%);
+            clear: both;
         }
 
         .about-hero span.welcome-text {
@@ -119,7 +97,7 @@
             font-weight: bold;
         }
 
-        /* كروت الإحصائيات الأنيقة المتناسقة مع الخلفية */
+        /* كروت الإحصائيات */
         .stats-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -127,10 +105,11 @@
             max-width: 1000px;
             margin: 20px auto 40px auto;
             padding: 0 20px;
+            clear: both;
         }
 
         .stat-card {
-            background: #16161a; /* لون الكروت المتناسق مع الموقع */
+            background: #16161a;
             padding: 30px 20px;
             border-radius: 20px;
             text-align: center;
@@ -140,7 +119,7 @@
 
         .stat-card h2 {
             font-size: 34px;
-            color: #4f0b20; /* الرقم بالنبيتي بتاعك */
+            color: #4f0b20;
             margin: 0 0 8px 0;
             font-weight: 700;
         }
@@ -179,7 +158,7 @@
             right: 0;
             left: 0;
             height: 5px;
-            background-color: #4f0b20; /* الخط النبيتي الفخم من فوق */
+            background-color: #4f0b20;
         }
 
         .info-box:hover {
@@ -206,7 +185,8 @@
     </style>
 </head>
 <body>
-        
+
+    <header class="main-header">
         <div class="center-logo">
             <div class="logo-wrapper">
                 <div class="logo-text-side">
