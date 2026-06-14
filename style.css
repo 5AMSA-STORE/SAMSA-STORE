@@ -1341,3 +1341,14 @@ margin-top:10px;
 .buy-now-btn:hover{
 opacity:.9;
 }
+.old-price{
+text-decoration:line-through;
+color:#999;
+font-size:15px;
+}
+
+.new-price{
+color:#d40000;
+font-size:24px;
+font-weight:bold;
+}
