@@ -11,91 +11,75 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-    /* =======================================================
-       أكواد التجاوب السحرية لحل مشكلة الهيدر على الموبايل
-       ======================================================= */
-    
-    /* حماية أبعاد الهيدر الأساسي */
-    .main-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap; /* للسماح بالعناصر بالنزول منظمين لو الشاشة ضيقة */
-        gap: 15px;
-        padding: 15px 5%;
-        box-sizing: border-box;
-    }
-
-    /* ضمان مرونة العناصر الثلاثة */
-    .search-box-container, .center-logo, .cart-box-container {
-        display: flex;
-        align-items: center;
-        box-sizing: border-box;
-    }
-
-    /* تنسيق المحاذاة الافتراضية للـ لابتوب */
-    .search-box-container { order: 1; width: 25%; }
-    .center-logo { order: 2; width: 40%; justify-content: center; }
-    .cart-box-container { order: 3; width: 25%; justify-content: flex-end; }
-
-    /* شاشات الموبايل (أصغر من 768 بكسل) */
+    /* فرض التجاوب والسيطرة الكاملة لحل مشكلة الهيدر على الموبايل */
     @media (max-width: 768px) {
-        .main-header {
-            padding: 12px 15px;
-            row-gap: 12px; /* مسافة عمودية بين السطور */
-            column-gap: 10px;
+        header.main-header {
+            display: flex !important;
+            flex-direction: column !important; /* يجبر العناصر تنزل تحت بعض نظامي */
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 12px !important;
+            padding: 15px 10px !important;
+            height: auto !important;
         }
 
-        /* إعادة ترتيب العناصر سحرلياً */
-        .center-logo {
-            order: 1;
-            width: 100%; /* اللوجو ياخد السطر العلوى لوحده في النص */
-            justify-content: center;
-        }
-
-        .search-box-container {
-            order: 2;
-            width: 65%; /* شريط البحث ياخد مساحة مريحة جمب السلة */
-        }
-
-        .cart-box-container {
-            order: 3;
-            width: 30%; /* السلة تاخد مساحتها المظبوطة على الشمال */
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.03); /* خلفية خفيفة تدي شياكة */
-            padding: 6px 10px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        /* تظبيط حجم حقل البحث عشان ميهربش بره الشاشة */
-        .search-box-container input {
+        /* السطر الأول: اللوجو ياخد السطر كامل فوق لوحده */
+        header.main-header .center-logo {
+            display: flex !important;
+            justify-content: center !important;
             width: 100% !important;
-            max-width: 100% !important;
-            box-sizing: border-box;
-            padding: 8px 12px;
-            font-size: 13px;
+            order: 1 !important;
         }
 
-        /* تصغير بسيط لحجم اللوجو على الموبايل عشان يريح العين */
-        .center-logo img {
-            height: 42px !important;
-            width: auto;
-        }
-        .logo-text-side h1 {
-            font-size: 22px !important;
-        }
-        .logo-text-side p {
-            font-size: 9px !important;
-            letter-spacing: 2px !important;
+        header.main-header .center-logo img {
+            height: 45px !important;
+            width: auto !important;
         }
 
-        /* تظبيط عناصر السلة الموبايل */
-        .cart-icon-wrapper {
-            font-size: 18px !important;
+        /* السطر الثاني: هنعمل حاجة صايعة، هنخلي البحث والسلة جمب بعض تحت اللوجو */
+        .mobile-row-container {
+            display: flex !important;
+            width: 100% !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            gap: 10px !important;
+            order: 2 !important;
         }
-        .cart-label {
+
+        header.main-header .search-box-container {
+            width: 65% !important;
+            margin: 0 !important;
+        }
+
+        header.main-header .search-box-container input {
+            width: 100% !important;
+            padding: 8px 12px !important;
+            font-size: 13px !important;
+            box-sizing: border-box !important;
+        }
+
+        header.main-header .cart-box-container {
+            width: 30% !important;
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 5px !important;
+            background: rgba(255, 255, 255, 0.05) !important;
+            padding: 6px 8px !important;
+            border-radius: 10px !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            margin: 0 !important;
+        }
+
+        header.main-header .cart-icon-wrapper {
+            font-size: 16px !important;
+        }
+
+        header.main-header .cart-label {
             font-size: 12px !important;
+            color: #ffffff !important;
+            display: inline !important;
         }
     }
 </style>
@@ -135,12 +119,7 @@
 
 <!-- 2. الهيدر الرئيسي المتكامل والمظبوط -->
 <header class="main-header">
-    <!-- اليمين خالص: خانة البحث -->
-    <div class="search-box-container">
-        <input type="text" id="searchInput" placeholder="ابحث عن منتج...">
-    </div>
-
-    <!-- المنتصف: اللوجو المدمج بالملي -->
+    <!-- اللوجو في مكانه النظيف -->
     <div class="center-logo">
         <div class="logo-wrapper">
             <div class="logo-text-side">
@@ -151,12 +130,20 @@
         </div>
     </div>
 
-    <!-- اليسار خالص: أيقونة السلة الاحترافية -->
-    <div class="cart-box-container">
-        <a href="cart.html" class="cart-icon-wrapper">
-            🛒 <span id="cart-count">0</span>
-        </a>
-        <span class="cart-label">السلة</span>
+    <!-- حاوية مرنة تجمع البحث والسلة معاً على الموبايل لتوفير مساحة عمودية -->
+    <div class="mobile-row-container">
+        <!-- خانة البحث -->
+        <div class="search-box-container">
+            <input type="text" id="searchInput" placeholder="ابحث عن منتج...">
+        </div>
+
+        <!-- أيقونة السلة الاحترافية -->
+        <div class="cart-box-container">
+            <a href="cart.html" class="cart-icon-wrapper">
+                🛒 <span id="cart-count">0</span>
+            </a>
+            <span class="cart-label">السلة</span>
+        </div>
     </div>
 </header>
 
