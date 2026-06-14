@@ -12,11 +12,11 @@
 
 <style>
     /* =======================================================
-       تنسيق الهيدر المخصص للموبايل مع ضمان ظهور السلايدر
+       تنسيق الهيدر الرايق + الاستدعاء الحديدي لصور السلايدر الثلاثة
        ======================================================= */
     @media only screen and (max-width: 768px) {
         
-        /* 1. فتح الهيدر ليتمدد تلقائياً عمودياً */
+        /* 1. ضبط حاوية الهيدر عمودياً وبشكل مرن */
         header.main-header, 
         .main-header {
             display: flex !important;
@@ -30,11 +30,9 @@
             gap: 12px !important;
             position: relative !important;
             background-color: #ffffff !important;
-            visibility: visible !important;
-            opacity: 1 !important;
         }
 
-        /* 2. تصفير المواقع لعناصر الهيدر فقط لضمان الترتيب الرأسي */
+        /* 2. تصفير التموضع لعناصر الهيدر */
         .main-header .center-logo,
         .main-header .search-box-container,
         .main-header .cart-box-container {
@@ -50,7 +48,7 @@
             display: flex !important;
         }
 
-        /* 3. السطر الأول: اللوجو */
+        /* 3. اللوجو سطر أول */
         .main-header .center-logo {
             order: 1 !important;
             justify-content: center !important;
@@ -70,7 +68,7 @@
         .logo-text-side h1 { font-size: 20px !important; margin: 0 !important; }
         .logo-text-side p { font-size: 9px !important; margin: 0 !important; }
 
-        /* 4. السطر الثاني: شريط البحث */
+        /* 4. شريط البحث سطر ثاني */
         .main-header .search-box-container {
             order: 2 !important;
             width: 90% !important;
@@ -88,7 +86,7 @@
             text-align: center !important;
         }
 
-        /* 5. السطر الثالث: السلة العادية الرايقة في النص */
+        /* 5. السلة الرايقة سطر ثالث */
         .main-header .cart-box-container {
             order: 3 !important;
             flex-direction: row !important;
@@ -122,17 +120,29 @@
             margin-right: 4px !important;
         }
 
-        /* 6. تأمين بقاء وظهور السلايدر والبنرات بعد الهيدر */
-        section.slider, .slider, .slide {
+        /* 6. استدعاء وإجبار صور السلايدر بالاسم من الفولدر */
+        .slider, .slider-container, .main-slider, section[class*="slider"] {
             display: block !important;
             visibility: visible !important;
             opacity: 1 !important;
             height: auto !important;
+            min-height: 200px !important;
+            position: relative !important;
+            clear: both !important;
         }
-        section.slider img, .slider img {
+
+        /* إجبار أي صورة داخل السلايدر تحمل اسم slider1 أو slider2 أو slider3 على الظهور */
+        img[src*="slider1"], 
+        img[src*="slider2"], 
+        img[src*="slider3"],
+        .slider img,
+        .slider-container img {
             display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
             width: 100% !important;
             height: auto !important;
+            content: auto !important;
         }
     }
 </style>
