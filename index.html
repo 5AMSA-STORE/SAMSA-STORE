@@ -1,13 +1,8 @@
 <!DOCTYPE html>
-
 <html lang="ar" dir="rtl">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>5AMSA STORE</title>
 <meta name="description" content="5AMSA STORE - جرابات، إكسسوارات، ديكورات وعروض مميزة بأفضل الأسعار">
 <meta name="keywords" content="جرابات, اكسسوارات, ديكورات, عروض">
@@ -15,6 +10,95 @@
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+<style>
+    /* =======================================================
+       أكواد التجاوب السحرية لحل مشكلة الهيدر على الموبايل
+       ======================================================= */
+    
+    /* حماية أبعاد الهيدر الأساسي */
+    .main-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap; /* للسماح بالعناصر بالنزول منظمين لو الشاشة ضيقة */
+        gap: 15px;
+        padding: 15px 5%;
+        box-sizing: border-box;
+    }
+
+    /* ضمان مرونة العناصر الثلاثة */
+    .search-box-container, .center-logo, .cart-box-container {
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    /* تنسيق المحاذاة الافتراضية للـ لابتوب */
+    .search-box-container { order: 1; width: 25%; }
+    .center-logo { order: 2; width: 40%; justify-content: center; }
+    .cart-box-container { order: 3; width: 25%; justify-content: flex-end; }
+
+    /* شاشات الموبايل (أصغر من 768 بكسل) */
+    @media (max-width: 768px) {
+        .main-header {
+            padding: 12px 15px;
+            row-gap: 12px; /* مسافة عمودية بين السطور */
+            column-gap: 10px;
+        }
+
+        /* إعادة ترتيب العناصر سحرلياً */
+        .center-logo {
+            order: 1;
+            width: 100%; /* اللوجو ياخد السطر العلوى لوحده في النص */
+            justify-content: center;
+        }
+
+        .search-box-container {
+            order: 2;
+            width: 65%; /* شريط البحث ياخد مساحة مريحة جمب السلة */
+        }
+
+        .cart-box-container {
+            order: 3;
+            width: 30%; /* السلة تاخد مساحتها المظبوطة على الشمال */
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.03); /* خلفية خفيفة تدي شياكة */
+            padding: 6px 10px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* تظبيط حجم حقل البحث عشان ميهربش بره الشاشة */
+        .search-box-container input {
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box;
+            padding: 8px 12px;
+            font-size: 13px;
+        }
+
+        /* تصغير بسيط لحجم اللوجو على الموبايل عشان يريح العين */
+        .center-logo img {
+            height: 42px !important;
+            width: auto;
+        }
+        .logo-text-side h1 {
+            font-size: 22px !important;
+        }
+        .logo-text-side p {
+            font-size: 9px !important;
+            letter-spacing: 2px !important;
+        }
+
+        /* تظبيط عناصر السلة الموبايل */
+        .cart-icon-wrapper {
+            font-size: 18px !important;
+        }
+        .cart-label {
+            font-size: 12px !important;
+        }
+    }
+</style>
 </head>
 
 <body>
@@ -23,7 +107,6 @@
 </a>
 
 <!-- 1. الشريطة العلوية (Top Bar): السوشيال يمين والمميزات شمال -->
-<!-- 1. الشريطة العلوية (Top Bar) المظبوطة -->
 <div class="top-bar-container">
     <div class="features">
         <span>🚚 شحن لجميع المحافظات</span>
@@ -50,17 +133,14 @@
 </div>
 </div>
 
-<!-- 2. الهيدر الرئيسي المتكامل والوحيد -->
+<!-- 2. الهيدر الرئيسي المتكامل والمظبوط -->
 <header class="main-header">
-    <!-- اليسار خالص: أيقونة السلة الاحترافية -->
-    <div class="cart-box-container">
-    <a href="cart.html" class="cart-icon-wrapper">
-        🛒 <span id="cart-count">0</span>
-    </a>
-    <span class="cart-label">السلة</span>
-</div>
+    <!-- اليمين خالص: خانة البحث -->
+    <div class="search-box-container">
+        <input type="text" id="searchInput" placeholder="ابحث عن منتج...">
+    </div>
 
-    <!-- المنتصف: اللوجو المدمج بالملي (الاسم شمال والوردة يمين) -->
+    <!-- المنتصف: اللوجو المدمج بالملي -->
     <div class="center-logo">
         <div class="logo-wrapper">
             <div class="logo-text-side">
@@ -71,10 +151,13 @@
         </div>
     </div>
 
-    <!-- اليمين خالص: خانة البحث -->
-    <div class="search-box-container">
-    <input type="text" id="searchInput" placeholder="ابحث عن منتج...">
-</div>
+    <!-- اليسار خالص: أيقونة السلة الاحترافية -->
+    <div class="cart-box-container">
+        <a href="cart.html" class="cart-icon-wrapper">
+            🛒 <span id="cart-count">0</span>
+        </a>
+        <span class="cart-label">السلة</span>
+    </div>
 </header>
 
 
@@ -89,206 +172,176 @@
 </nav>
 
 <section class="slider">
-
-<div class="slide active">
-<img src="images/slider1.jpg">
-</div>
-
-<div class="slide">
-<img src="images/slider2.jpg">
-</div>
-
-<div class="slide">
-<img src="images/slider3.jpg">
-</div>
-
+    <div class="slide active">
+        <img src="images/slider1.jpg">
+    </div>
+    <div class="slide">
+        <img src="images/slider2.jpg">
+    </div>
+    <div class="slide">
+        <img src="images/slider3.jpg">
+    </div>
 </section>
 
 <section class="categories">
-
-<a href="cases.html" class="category-card">
-    <img src="images/banner-cases.jpg">
-    <h3>جرابات</h3>
-</a>
-
-<a href="accessories.html" class="category-card">
-    <img src="images/banner-accessories.jpg">
-    <h3>إكسسوارات</h3>
-</a>
-
-<a href="decor.html" class="category-card">
-    <img src="images/banner-decor.jpg">
-    <h3>ديكورات</h3>
-</a>
-
-<a href="offers.html" class="category-card">
-    <img src="images/banner-offers.jpg">
-    <h3>عروض</h3>
-</a>
-
+    <a href="cases.html" class="category-card">
+        <img src="images/banner-cases.jpg">
+        <h3>جرابات</h3>
+    </a>
+    <a href="accessories.html" class="category-card">
+        <img src="images/banner-accessories.jpg">
+        <h3>إكسسوارات</h3>
+    </a>
+    <a href="decor.html" class="category-card">
+        <img src="images/banner-decor.jpg">
+        <h3>ديكورات</h3>
+    </a>
+    <a href="offers.html" class="category-card">
+        <img src="images/banner-offers.jpg">
+        <h3>عروض</h3>
+    </a>
 </section>
 
 <section class="products-title">
     <h2>أحدث المنتجات</h2>
 </section>
+
 <section class="products">
+    <div class="card">
+        <img src="images/shemagh-case.jpg">
+        <h3>جراب آيفون So Cool</h3>
+        <p>300 جنيه</p>
+        <button onclick="addToCart('جراب آيفون So Cool',300)">أضف للسلة</button>
+    </div>
 
-<div class="card">
-<img src="images/shemagh-case.jpg">
-<h3>جراب آيفون So Cool</h3>
-<p>300 جنيه</p>
-<button onclick="addToCart('جراب آيفون So Cool',300)">أضف للسلة</button>
-</div>
+    <div class="card">
+        <a href="travis-case.html">
+            <img src="images/travis-case.jpg">
+        </a>
+        <h3>جراب آيفون ترافيس سكوت</h3>
+        <p>200 جنيه</p>
+        <button onclick="addToCart('جراب آيفون ترافيس سكوت',200)">أضف للسلة</button>
+    </div>
 
-<div class="card">
-<a href="travis-case.html">
-<img src="images/travis-case.jpg">
-</a>
-<h3>جراب آيفون ترافيس سكوت</h3>
-<p>200 جنيه</p>
-<button onclick="addToCart('جراب آيفون ترافيس سكوت',200)">أضف للسلة</button>
-</div>
+    <div class="card">
+        <img src="images/socool-case.jpg">
+        <h3>جراب آيفون بورش ريسنج</h3>
+        <p>300 جنيه</p>
+        <button onclick="addToCart('جراب آيفون بورش ريسنج',300)">أضف للسلة</button>
+    </div>
 
-<div class="card">
-<img src="images/socool-case.jpg">
-<h3>جراب آيفون بورش ريسنج</h3>
-<p>300 جنيه</p>
-<button onclick="addToCart('جراب آيفون بورش ريسنج',300)">أضف للسلة</button>
-</div>
+    <div class="card">
+        <img src="images/aramid-case.jpg">
+        <h3>جراب كاربون فايبر أراميد S25 Ultra</h3>
+        <p>300 جنيه</p>
+        <button onclick="addToCart('جراب كاربون فايبر أراميد',300)">أضف للسلة</button>
+    </div>
 
-<div class="card">
-<img src="images/aramid-case.jpg">
-<h3>جراب كاربون فايبر أراميد S25 Ultra</h3>
-<p>300 جنيه</p>
-<button onclick="addToCart('جراب كاربون فايبر أراميد',300)">أضف للسلة</button>
-</div>
+    <div class="card">
+        <img src="images/bracelet.jpg">
+        <h3>سوار معصم كاجوال</h3>
+        <p>200 جنيه</p>
+        <button onclick="addToCart('سوار معصم كاجوال',200)">أضف للسلة</button>
+    </div>
 
-<div class="card">
-<img src="images/bracelet.jpg">
-<h3>سوار معصم كاجوال</h3>
-<p>200 جنيه</p>
-<button onclick="addToCart('سوار معصم كاجوال',200)">أضف للسلة</button>
-</div>
+    <div class="card">
+        <img src="images/glasses-black.jpg">
+        <h3>Black Fashion Glasses</h3>
+        <p>400 جنيه</p>
+        <button onclick="addToCart('Black Fashion Glasses',400)">أضف للسلة</button>
+    </div>
 
-<div class="card">
-<img src="images/glasses-black.jpg">
-<h3>Black Fashion Glasses</h3>
-<p>400 جنيه</p>
-<button onclick="addToCart('Black Fashion Glasses',400)">أضف للسلة</button>
-</div>
+    <div class="card">
+        <img src="images/glasses-geo.jpg">
+        <h3>Geometric Fashion Sunglasses</h3>
+        <p>400 جنيه</p>
+        <button onclick="addToCart('Geometric Fashion Sunglasses',400)">أضف للسلة</button>
+    </div>
 
-<div class="card">
-<img src="images/glasses-geo.jpg">
-<h3>Geometric Fashion Sunglasses</h3>
-<p>400 جنيه</p>
-<button onclick="addToCart('Geometric Fashion Sunglasses',400)">أضف للسلة</button>
-</div>
+    <div class="card">
+        <img src="images/women-watch.jpg">
+        <h3>Luxury Women's Watch</h3>
+        <p>500 جنيه</p>
+        <button onclick="addToCart('Luxury Womens Watch',500)">أضف للسلة</button>
+    </div>
 
-<div class="card">
-<img src="images/women-watch.jpg">
-<h3>Luxury Women's Watch</h3>
-<p>500 جنيه</p>
-<button onclick="addToCart('Luxury Womens Watch',500)">أضف للسلة</button>
-</div>
+    <div class="card">
+        <img src="images/business-watch.jpg">
+        <h3>Business Watch For Men</h3>
+        <p>900 جنيه</p>
+        <button onclick="addToCart('Business Watch For Men',900)">أضف للسلة</button>
+    </div>
 
-<div class="card">
-<img src="images/business-watch.jpg">
-<h3>Business Watch For Men</h3>
-<p>900 جنيه</p>
-<button onclick="addToCart('Business Watch For Men',900)">أضف للسلة</button>
-</div>
+    <div class="card">
+        <img src="images/ninja-model.jpg">
+        <h3>Model Kawasaki Ninja H2R</h3>
+        <p>600 جنيه</p>
+        <button onclick="addToCart('Model Kawasaki Ninja H2R',600)">أضف للسلة</button>
+    </div>
 
-<div class="card">
-<img src="images/ninja-model.jpg">
-<h3>Model Kawasaki Ninja H2R</h3>
-<p>600 جنيه</p>
-<button onclick="addToCart('Model Kawasaki Ninja H2R',600)">أضف للسلة</button>
-</div>
+    <div class="card">
+        <img src="images/porsche-model.jpg">
+        <h3>Model Porsche GT3 RS</h3>
+        <p>700 جنيه</p>
+        <button onclick="addToCart('Model Porsche GT3 RS',700)">أضف للسلة</button>
+    </div>
 
-<div class="card">
-<img src="images/porsche-model.jpg">
-<h3>Model Porsche GT3 RS</h3>
-<p>700 جنيه</p>
-<button onclick="addToCart('Model Porsche GT3 RS',700)">أضف للسلة</button>
-</div>
-
-<div class="card">
-<img src="images/bmw-model.jpg">
-<h3>Model BMW M3</h3>
-<p>700 جنيه</p>
-<button onclick="addToCart('Model BMW M3',700)">أضف للسلة</button>
-</div>
-
+    <div class="card">
+        <img src="images/bmw-model.jpg">
+        <h3>Model BMW M3</h3>
+        <p>700 جنيه</p>
+        <button onclick="addToCart('Model BMW M3',700)">أضف للسلة</button>
+    </div>
 </section>
 
 <div class="whatsapp-box">
-
-<h3>تواصل معنا</h3>
-
-<a href="https://wa.me/201095354087">
-
-+20 10 95354087
-
-</a>
-
-<a href="https://wa.me/201070797515">
-
-+20 107 079 7515
-
-</a>
-
+    <h3>تواصل معنا</h3>
+    <a href="https://wa.me/201095354087">+20 10 95354087</a>
+    <a href="https://wa.me/201070797515">+20 107 079 7515</a>
 </div>
+
 <section class="features-section">
-
-<div class="feature">
-🚚
-<h3>شحن سريع</h3>
-<p>شحن لجميع محافظات مصر</p>
-</div>
-
-<div class="feature">
-💰
-<h3>الدفع عند الاستلام</h3>
-<p>استلم المنتج ثم ادفع</p>
-</div>
-
-<div class="feature">
-🛡️
-<h3>منتجات أصلية</h3>
-<p>جودة مضمونة 100%</p>
-</div>
-
-<div class="feature">
-📞
-<h3>دعم العملاء</h3>
-<p>متواجدون للرد على استفساراتك</p>
-</div>
-
+    <div class="feature">
+        🚚
+        <h3>شحن سريع</h3>
+        <p>شحن لجميع محافظات مصر</p>
+    </div>
+    <div class="feature">
+        💰
+        <h3>الدفع عند الاستلام</h3>
+        <p>استلم المنتج ثم ادفع</p>
+    </div>
+    <div class="feature">
+        🛡️
+        <h3>منتجات أصلية</h3>
+        <p>جودة مضمونة 100%</p>
+    </div>
+    <div class="feature">
+        📞
+        <h3>دعم العملاء</h3>
+        <p>متواجدون للرد على استفساراتك</p>
+    </div>
 </section>
 
 <div class="whatsapp-order">
-<button onclick="sendWhatsApp()">
-إرسال الطلب على واتساب
-</button>
+    <button onclick="sendWhatsApp()">إرسال الطلب على واتساب</button>
 </div>
 
 <div class="cart-icon">
     🛒 <span id="cart-count">0</span>
 </div>
+
 <footer class="footer">
     <div class="footer-content">
-
         <div>
             <h3>5AMSA STORE</h3>
             <p>جرابات - إكسسوارات - ديكور- عروض </p>
         </div>
-
         <div>
             <h4>تواصل معنا</h4>
             <p>📞 01095354087</p>
             <p>📞 01070797515</p>
         </div>
-
         <div>
             <h4>تابعنا</h4>
             <a href="https://www.facebook.com/share/18eer2g4Wn/?mibextid=wwXIfr">Facebook</a>
@@ -297,13 +350,12 @@
             <br>
             <a href="https://www.tiktok.com/@5amsa.store">TikTok</a>
         </div>
-
     </div>
-
     <div class="footer-copy">
-        © 2026 5AMSA STORE - All Rights Reserved
+        ©️ 2026 5AMSA STORE - All Rights Reserved
     </div>
 </footer>
+
 <script src="script.js"></script>
 <script src="cart.js"></script>
 <div id="toast">
