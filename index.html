@@ -11,29 +11,36 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-    /* ==========================================
-       تنسيقات سحرية مخصصة لشاشات الموبايل فقط
-       ========================================== */
-    @media (max-width: 768px) {
-        /* إجبار الهيدر على ترتيب العناصر عمودياً تحت بعضها */
+    /* =======================================================
+       تنسيقات الإجبار المطلق لتعديل الهيدر على الموبايل فقط
+       ======================================================= */
+    @media only screen and (max-width: 768px) {
+        /* إجبار حاوية الهيدر الكاملة */
         header.main-header, 
         .main-header {
             display: flex !important;
-            flex-direction: column !important;
+            flex-direction: column !important; /* ترتيب رأسي حتمي */
             align-items: center !important;
             justify-content: center !important;
             gap: 15px !important;
             padding: 15px 10px !important;
             height: auto !important;
+            min-height: auto !important;
         }
 
-        /* 1. اللوجو: يظهر في السطر الأول فوق بالكامل وفي المنتصف */
+        /* 1. اللوجو: سطر كامل لوحده فوق */
         header.main-header .center-logo,
         .main-header .center-logo {
             display: flex !important;
             justify-content: center !important;
             width: 100% !important;
-            order: 1 !important; /* يضمن ظهوره أول واحد فوق */
+            max-width: 100% !important;
+            position: relative !important;
+            left: auto !important;
+            right: auto !important;
+            transform: none !important;
+            float: none !important;
+            order: 1 !important;
             margin: 0 auto !important;
         }
 
@@ -41,17 +48,22 @@
         .center-logo img {
             height: 45px !important;
             width: auto !important;
+            display: block !important;
         }
 
-        /* 2. خانة البحث: تظهر في السطر الثاني وتحمل عرض مناسب جداً */
+        /* 2. شريط البحث: ينزل السطر الثاني في المنتصف */
         header.main-header .search-box-container,
         .search-box-container {
             display: flex !important;
             width: 90% !important;
-            max-width: 320px !important;
-            order: 2 !important; /* تظهر في السطر الثاني */
+            max-width: 340px !important;
+            position: relative !important;
+            left: auto !important;
+            right: auto !important;
+            transform: none !important;
+            float: none !important;
+            order: 2 !important;
             margin: 0 auto !important;
-            justify-content: center !important;
         }
 
         header.main-header .search-box-container input,
@@ -61,10 +73,10 @@
             padding: 10px 15px !important;
             font-size: 14px !important;
             box-sizing: border-box !important;
-            border-radius: 25px !important; /* شكل دائري أنيق على الموبايل */
+            border-radius: 25px !important;
         }
 
-        /* 3. صندوق السلة: يظهر في السطر الثالث أسفل البحث بتنسيق شيك */
+        /* 3. السلة: تنزل السطر الثالث في المنتصف بشكل شيك */
         header.main-header .cart-box-container,
         .cart-box-container {
             display: flex !important;
@@ -73,10 +85,15 @@
             justify-content: center !important;
             gap: 8px !important;
             width: auto !important;
-            order: 3 !important; /* تظهر في السطر الثالث والأخير */
+            position: relative !important;
+            left: auto !important;
+            right: auto !important;
+            transform: none !important;
+            float: none !important;
+            order: 3 !important;
             margin: 5px auto 0 auto !important;
             background: rgba(255, 255, 255, 0.05) !important;
-            padding: 6px 16px !important;
+            padding: 6px 20px !important;
             border-radius: 20px !important;
             border: 1px solid rgba(255, 255, 255, 0.1) !important;
         }
@@ -84,7 +101,6 @@
         header.main-header .cart-icon-wrapper,
         .cart-icon-wrapper {
             font-size: 18px !important;
-            position: relative !important;
         }
 
         header.main-header .cart-label,
