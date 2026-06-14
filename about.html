@@ -1,62 +1,187 @@
-<section class="about-hero">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>من نحن - 5AMSA STORE</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ستايل مخصص وفخم لصفحة من نحن */
+        body {
+            background-color: #0f0f12;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-    <div class="about-overlay"></div>
+        .about-hero {
+            text-align: center;
+            padding: 60px 20px 40px 20px;
+            background: linear-gradient(180deg, #1a050b 0%, #0f0f12 100%);
+        }
 
-    <div class="about-content">
-<div class="about-stats">
+        .about-hero span.welcome-text {
+            color: #4f0b20;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: inline-block;
+        }
 
-    <div class="stat-box">
-        <h3>100+</h3>
-        <span>عميل سعيد</span>
-    </div>
+        .about-hero h1 {
+            font-size: 36px;
+            margin: 10px 0 20px 0;
+            color: #fff;
+        }
 
-    <div class="stat-box">
-        <h3>24/7</h3>
-        <span>دعم العملاء</span>
-    </div>
+        .about-hero p {
+            font-size: 18px;
+            color: #b3b3b3;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
 
-    <div class="stat-box">
-        <h3>EG</h3>
-        <span>شحن لكل مصر</span>
-    </div>
+        /* كود سحري لمنع لخبطة الاسم الرقمي والإنجليزي وسط العربي */
+        .brand-inline {
+            display: inline-block;
+            direction: ltr;
+            color: #4f0b20;
+            font-weight: bold;
+        }
 
-</div>
+        /* الإحصائيات (100+ عميل، شحن لكل مصر) */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
 
-        <span class="about-tag">WELCOME TO 5AMSA STORE</span>
+        .stat-card {
+            background: #16161a;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
 
+        .stat-card h2 {
+            font-size: 32px;
+            color: #4f0b20;
+            margin: 0 0 5px 0;
+        }
+
+        .stat-card p {
+            font-size: 14px;
+            color: #a0a0a0;
+            margin: 0;
+        }
+
+        /* الرؤية والمهمة ولماذا نحن */
+        .info-sections {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .info-box {
+            background: #1c1c22;
+            padding: 30px;
+            border-radius: 16px;
+            border-top: 4px solid #4f0b20;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .info-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-box h3 {
+            font-size: 22px;
+            margin-top: 0;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-box p {
+            font-size: 15px;
+            color: #cccccc;
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الهيدر الرئيسي بتاعك -->
+    <header class="main-header">
+        <div class="cart-box-container" onclick="window.location.href='cart.html'" style="cursor: pointer;">
+            <a href="cart.html" class="cart-icon-wrapper">
+                🛒 <span id="cart-count">0</span>
+            </a>
+            <span class="cart-label">السلة</span>
+        </div>
+        <div class="center-logo">
+            <div class="logo-wrapper">
+                <div class="logo-text-side">
+                    <h1>5AMSA</h1>
+                    <p>STORE</p>
+                </div>
+                <img src="logo.png" alt="5AMSA STORE">
+            </div>
+        </div>
+    </header>
+
+    <!-- محتوى الصفحة المتظبط -->
+    <section class="about-hero">
+        <span class="welcome-text" style="direction: ltr;">WELCOME TO 5AMSA STORE</span>
         <h1>أسلوبك يبدأ من التفاصيل</h1>
+        <p>نؤمن أن التفاصيل الصغيرة تصنع الفرق، لذلك نوفر منتجات مختارة بعناية تجمع بين الأناقة والجودة والسعر المناسب في <span class="brand-inline">5AMSA STORE</span>.</p>
+    </section>
 
-        <p>
-في 
-5AMSA STORE نؤمن أن التفاصيل الصغيرة تصنع الفرق.
-لذلك نوفر منتجات مختارة بعناية تجمع بين الأناقة والجودة والسعر المناسب.
-</p>
+    <!-- الأرقام والإحصائيات الثابتة -->
+    <section class="stats-container">
+        <div class="stat-card">
+            <h2>+100</h2>
+            <p>عميل سعيد يثق بنا</p>
+        </div>
+        <div class="stat-card">
+            <h2>24/7</h2>
+            <p>دعم عملاء متواصل معكم</p>
+        </div>
+        <div class="stat-card">
+            <h2>EG</h2>
+            <p>شحن سريع لكل محافظات مصر</p>
+        </div>
+    </section>
 
-    </div>
+    <!-- الرؤية والمهمة ولماذا نحن -->
+    <section class="info-sections">
+        <div class="info-box">
+            <h3>👁️ رؤيتنا</h3>
+            <p>نوفر منتجات مميزة بجودة عالية وتصميمات عصرية تناسب جميع الأذواق وتجعل هاتفك فريداً من نوعه.</p>
+        </div>
+        <div class="info-box">
+            <h3>🎯 مهمتنا</h3>
+            <p>تقديم تجربة شراء سهلة وآمنة مع أسعار مناسبة وشحن سريع لجميع المحافظات لضمان رضاكم.</p>
+        </div>
+        <div class="info-box">
+            <h3>🔥 لماذا <span class="brand-inline" style="color: #fff;">5AMSA STORE</span>؟</h3>
+            <p>لأننا نقدم منتجات مختارة بعناية فائقة، دعم فني سريع معك على مدار الساعة، وعروض مستمرة لا تنتهي لعملائنا.</p>
+        </div>
+    </section>
 
-</section>
-
-<section class="about-info">
-
-    <div class="info-card">
-        <h2>رؤيتنا</h2>
-        <p>
-            نوفر منتجات مميزة بجودة عالية وتصميمات عصرية تناسب جميع الأذواق.
-        </p>
-    </div>
-
-    <div class="info-card">
-        <h2>مهمتنا</h2>
-        <p>
-            تقديم تجربة شراء سهلة وآمنة مع أسعار مناسبة وشحن سريع لجميع المحافظات.
-        </p>
-    </div>
-
-    <div class="info-card">
-        <h2>لماذا 5AMSA ؟</h2>
-        <p>
-            منتجات مختارة بعناية، دعم سريع، وعروض مستمرة لعملائنا.
-        </p>
-    </div>
-
-</section>
+</body>
+</html>
