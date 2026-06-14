@@ -12,27 +12,29 @@
 
 <style>
     /* =======================================================
-       تطهير شامل وإعادة بناء الهيدر للموبايل (بدون لمس اللابتوب)
+       تنسيق الهيدر المخصص للموبايل مع ضمان ظهور السلايدر
        ======================================================= */
     @media only screen and (max-width: 768px) {
         
-        /* 1. نسف الارتفاع القديم وفتح الهيدر ليتمدد تلقائياً */
+        /* 1. فتح الهيدر ليتمدد تلقائياً عمودياً */
         header.main-header, 
         .main-header {
             display: flex !important;
-            flex-direction: column !important; /* ترتيب عمودي حتمي */
+            flex-direction: column !important;
             align-items: center !important;
             justify-content: flex-start !important;
-            height: auto !important; /* إلغاء الارتفاع الثابت الزانق للعناصر */
+            height: auto !important;
             min-height: auto !important;
             max-height: none !important;
             padding: 15px 10px !important;
-            gap: 15px !important;
+            gap: 12px !important;
             position: relative !important;
-            background-color: #ffffff !important; /* الحفاظ على الخلفية البيضاء */
+            background-color: #ffffff !important;
+            visibility: visible !important;
+            opacity: 1 !important;
         }
 
-        /* 2. تصفير شامل لأي تموضع قديم مسبب الترحيل */
+        /* 2. تصفير المواقع لعناصر الهيدر فقط لضمان الترتيب الرأسي */
         .main-header .center-logo,
         .main-header .search-box-container,
         .main-header .cart-box-container {
@@ -45,12 +47,12 @@
             margin: 0 auto !important;
             float: none !important;
             clear: both !important;
+            display: flex !important;
         }
 
-        /* 3. السطر الأول: اللوجو منور في النص */
+        /* 3. السطر الأول: اللوجو */
         .main-header .center-logo {
             order: 1 !important;
-            display: flex !important;
             justify-content: center !important;
             align-items: center !important;
             width: 100% !important;
@@ -68,12 +70,11 @@
         .logo-text-side h1 { font-size: 20px !important; margin: 0 !important; }
         .logo-text-side p { font-size: 9px !important; margin: 0 !important; }
 
-        /* 4. السطر الثاني: شريط البحث كامل وموزون بالمسطرة */
+        /* 4. السطر الثاني: شريط البحث */
         .main-header .search-box-container {
             order: 2 !important;
             width: 90% !important;
             max-width: 320px !important;
-            display: flex !important;
             justify-content: center !important;
         }
         .main-header .search-box-container input {
@@ -87,39 +88,51 @@
             text-align: center !important;
         }
 
-        /* 5. السطر الثالث: السلة العادية النظيفة بدون أي ألوان غريبة */
+        /* 5. السطر الثالث: السلة العادية الرايقة في النص */
         .main-header .cart-box-container {
             order: 3 !important;
-            display: flex !important;
             flex-direction: row !important;
             align-items: center !important;
             justify-content: center !important;
             gap: 6px !important;
             width: auto !important;
-            background: none !important; /* إلغاء الخلفية العنابي */
-            padding: 0 !important; /* إلغاء الحواف */
-            border: none !important; /* إلغاء الإطار */
-            margin-top: 5px !important;
+            background: none !important;
+            padding: 0 !important;
+            border: none !important;
+            margin-top: 2px !important;
         }
         .main-header .cart-icon-wrapper {
-            font-size: 20px !important; /* تكبير الأيقونة سنة لتكون واضحة */
-            color: #333 !important; /* اللون العادي الداكن المتناسق مع الأبيض */
+            font-size: 20px !important;
+            color: #333 !important;
             text-decoration: none !important;
         }
         .main-header .cart-label {
             font-size: 14px !important;
-            color: #333333 !important; /* كلمة السلة باللون الداكن العادي */
+            color: #333333 !important;
             display: inline !important;
             font-weight: bold !important;
         }
         #cart-count {
-            background: #800020 !important; /* دايرة الإشعار باللون العنابي بتاع اللوجو */
+            background: #800020 !important;
             color: #fff !important;
             border-radius: 50% !important;
             padding: 1px 6px !important;
             font-size: 11px !important;
             font-weight: bold !important;
             margin-right: 4px !important;
+        }
+
+        /* 6. تأمين بقاء وظهور السلايدر والبنرات بعد الهيدر */
+        section.slider, .slider, .slide {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            height: auto !important;
+        }
+        section.slider img, .slider img {
+            display: block !important;
+            width: 100% !important;
+            height: auto !important;
         }
     }
 </style>
