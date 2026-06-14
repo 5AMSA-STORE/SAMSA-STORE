@@ -1325,3 +1325,19 @@ font-size:28px;
 }
 
 }
+.buy-now-btn{
+display:inline-block;
+background:#25D366;
+color:white;
+text-decoration:none;
+padding:15px 30px;
+border-radius:10px;
+font-size:18px;
+font-weight:bold;
+margin-right:10px;
+margin-top:10px;
+}
+
+.buy-now-btn:hover{
+opacity:.9;
+}
