@@ -12,133 +12,113 @@
 
 <style>
     /* =======================================================
-       تنسيقات السيطرة المطلقة وتطهير الهيدر على الموبايل
+       تطهير شامل وإعادة بناء الهيدر للموبايل (بدون لمس اللابتوب)
        ======================================================= */
     @media only screen and (max-width: 768px) {
-        /* إجبار حاوية الهيدر على الفتح العمودي الكامل */
+        
+        /* 1. نسف الارتفاع القديم وفتح الهيدر ليتمدد تلقائياً */
         header.main-header, 
         .main-header {
             display: flex !important;
-            flex-direction: column !important;
+            flex-direction: column !important; /* ترتيب عمودي حتمي */
             align-items: center !important;
-            justify-content: center !important;
-            gap: 15px !important;
-            padding: 20px 15px !important;
-            height: auto !important;
+            justify-content: flex-start !important;
+            height: auto !important; /* إلغاء الارتفاع الثابت الزانق للعناصر */
             min-height: auto !important;
-            width: 100% !important;
-            box-sizing: border-box !important;
+            max-height: none !important;
+            padding: 15px 10px !important;
+            gap: 15px !important;
+            position: relative !important;
+            background-color: #ffffff !important; /* الحفاظ على الخلفية البيضاء */
         }
 
-        /* تصفير الخواص القديمة لكل محتويات الهيدر */
-        .main-header * {
-            position: static !important;
-            transform: none !important;
-            left: auto !important;
-            right: auto !important;
+        /* 2. تصفير شامل لأي تموضع قديم مسبب الترحيل */
+        .main-header .center-logo,
+        .main-header .search-box-container,
+        .main-header .cart-box-container {
+            position: relative !important;
             top: auto !important;
             bottom: auto !important;
-            margin: 0 !important;
-            box-sizing: border-box !important;
+            left: auto !important;
+            right: auto !important;
+            transform: none !important;
+            margin: 0 auto !important;
+            float: none !important;
+            clear: both !important;
         }
 
-        /* 1. اللوجو: سطر أول في السنتر */
-        header.main-header .center-logo,
+        /* 3. السطر الأول: اللوجو منور في النص */
         .main-header .center-logo {
+            order: 1 !important;
             display: flex !important;
             justify-content: center !important;
             align-items: center !important;
             width: 100% !important;
-            margin-bottom: 5px !important;
         }
-
         .main-header .logo-wrapper {
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
-            gap: 10px !important;
+            gap: 8px !important;
         }
-
-        header.main-header .center-logo img,
-        .center-logo img {
-            height: 42px !important;
+        .main-header .center-logo img {
+            height: 40px !important;
             width: auto !important;
-            display: block !important;
         }
+        .logo-text-side h1 { font-size: 20px !important; margin: 0 !important; }
+        .logo-text-side p { font-size: 9px !important; margin: 0 !important; }
 
-        .logo-text-side h1 {
-            font-size: 22px !important;
-            line-height: 1 !important;
-        }
-        .logo-text-side p {
-            font-size: 9px !important;
-            letter-spacing: 2px !important;
-        }
-
-        /* 2. شريط البحث: سطر ثاني عريض وموزون */
-        header.main-header .search-box-container,
-        .search-box-container {
+        /* 4. السطر الثاني: شريط البحث كامل وموزون بالمسطرة */
+        .main-header .search-box-container {
+            order: 2 !important;
+            width: 90% !important;
+            max-width: 320px !important;
             display: flex !important;
-            width: 100% !important;
-            max-width: 340px !important;
             justify-content: center !important;
         }
-
-        header.main-header .search-box-container input,
-        .search-box-container input {
+        .main-header .search-box-container input {
             width: 100% !important;
-            padding: 10px 16px !important;
+            padding: 10px 15px !important;
             font-size: 14px !important;
+            border: 1px solid #ddd !important;
             border-radius: 25px !important;
-            border: 1px solid rgba(255, 255, 255, 0.2) !important;
-            background: rgba(255, 255, 255, 0.05) !important;
-            color: #fff !important;
+            background: #f9f9f9 !important;
+            color: #333 !important;
             text-align: center !important;
         }
 
-        /* 3. صندوق السلة: سطر ثالث كبسولة شياكة في النص */
-        header.main-header .cart-box-container,
-        .cart-box-container {
+        /* 5. السطر الثالث: كبسولة السلة الاحترافية في المنتصف */
+        .main-header .cart-box-container {
+            order: 3 !important;
             display: flex !important;
             flex-direction: row !important;
             align-items: center !important;
             justify-content: center !important;
             gap: 8px !important;
             width: auto !important;
-            background: rgba(255, 255, 255, 0.07) !important;
-            padding: 8px 22px !important;
+            background: #800020 !important; /* لون العنابي الفخم المتناسق مع البراند */
+            padding: 8px 20px !important;
             border-radius: 20px !important;
-            border: 1px solid rgba(255, 255, 255, 0.15) !important;
             margin-top: 5px !important;
         }
-
-        header.main-header .cart-icon-wrapper,
-        .cart-icon-wrapper {
-            font-size: 18px !important;
-            display: flex !important;
-            align-items: center !important;
+        .main-header .cart-icon-wrapper {
+            font-size: 16px !important;
             color: #fff !important;
             text-decoration: none !important;
         }
-
-        /* تظبيط رقم إشعار السلة */
-        #cart-count {
-            background: #ff3b30 !important;
-            color: white !important;
-            border-radius: 50% !important;
-            padding: 2px 7px !important;
-            font-size: 11px !important;
-            margin-right: 5px !important;
-            font-weight: bold !important;
-            display: inline-block !important;
-        }
-
-        header.main-header .cart-label,
-        .cart-label {
+        .main-header .cart-label {
             font-size: 13px !important;
             color: #ffffff !important;
             display: inline !important;
-            font-weight: 500 !important;
+        }
+        #cart-count {
+            background: #fff !important;
+            color: #800020 !important;
+            border-radius: 50% !important;
+            padding: 1px 6px !important;
+            font-size: 11px !important;
+            font-weight: bold !important;
+            margin-right: 4px !important;
         }
     }
 </style>
