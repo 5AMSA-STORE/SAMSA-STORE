@@ -6,19 +6,79 @@
     <title>من نحن - 5AMSA STORE</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* ستايل ألوان رايق ومودرن: رمادي دافئ هادي مريح للعين */
+        /* ألوان جديدة رايقة جداً: بيج دافئ / أوف وايت ناعم مريح للعين */
         body {
-            background-color: #f4f4f6; /* لون أوف وايت/رمادي ناعم جداً */
+            background-color: #f0ece9; /* درجة كريمي بيج هادية وراقية */
             color: #2b2b2d;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
         }
 
+        /* تظبيط الهيدر عشان اللوجو logo.png يظهر صح وما يضربش */
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .center-logo .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-text-side h1 {
+            font-size: 24px;
+            margin: 0;
+            color: #1a1a1a;
+            font-weight: 800;
+        }
+
+        .logo-text-side p {
+            font-size: 10px;
+            margin: 0;
+            color: #666;
+            letter-spacing: 2px;
+        }
+
+        .center-logo img {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .cart-box-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cart-icon-wrapper {
+            text-decoration: none;
+            font-size: 20px;
+            position: relative;
+        }
+
+        #cart-count {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background-color: #ff0000;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 10px;
+        }
+
+        /* محتوى الصفحة */
         .about-hero {
             text-align: center;
-            padding: 70px 20px 40px 20px;
-            background: linear-gradient(180deg, #eaeaea 0%, #f4f4f6 100%);
+            padding: 60px 20px 30px 20px;
+            background: linear-gradient(180deg, #e6ded9 0%, #f0ece9 100%);
         }
 
         .about-hero span.welcome-text {
@@ -34,7 +94,7 @@
         }
 
         .about-hero h1 {
-            font-size: 38px;
+            font-size: 36px;
             margin: 20px 0;
             color: #1c1c1e;
             font-weight: 800;
@@ -48,7 +108,6 @@
             line-height: 1.8;
         }
 
-        /* حماية اسم البراند من اللخبطة */
         .brand-inline {
             display: inline-block;
             direction: ltr;
@@ -67,11 +126,11 @@
         }
 
         .stat-card {
-            background: #ffffff; /* كروت بيضاء تبرز فوق الخلفية الرمادي */
+            background: #ffffff;
             padding: 30px 20px;
             border-radius: 20px;
             text-align: center;
-            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
             border: 1px solid rgba(0, 0, 0, 0.01);
         }
 
@@ -86,7 +145,6 @@
             font-size: 14px;
             color: #6c6c72;
             margin: 0;
-            font-weight: 500;
         }
 
         /* كروت الرؤية والمهمة */
@@ -100,14 +158,14 @@
         }
 
         .info-box {
-            background: #ffffff; /* كروت بيضاء منورة */
+            background: #ffffff;
             padding: 35px 30px;
             border-radius: 24px;
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
             border: 1px solid rgba(0, 0, 0, 0.01);
             position: relative;
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease;
         }
 
         .info-box::before {
@@ -117,7 +175,7 @@
             right: 0;
             left: 0;
             height: 5px;
-            background-color: #4f0b20; /* خط نبيتي فخم فوق كل كارت */
+            background-color: #4f0b20;
         }
 
         .info-box:hover {
@@ -145,6 +203,7 @@
 </head>
 <body>
 
+    <!-- الهيدر الرئيسي المتظبط بالملي عشان يظهر logo.png -->
     <header class="main-header">
         <div class="cart-box-container" onclick="window.location.href='cart.html'" style="cursor: pointer;">
             <a href="cart.html" class="cart-icon-wrapper">
@@ -163,12 +222,14 @@
         </div>
     </header>
 
+    <!-- محتوى الصفحة بالألوان الرايقة والبيج الهادي -->
     <section class="about-hero">
         <span class="welcome-text" style="direction: ltr;">WELCOME TO 5AMSA STORE</span>
         <h1>أسلوبك يبدأ من التفاصيل</h1>
         <p>نؤمن أن التفاصيل الصغيرة تصنع الفرق، لذلك نوفر منتجات مختارة بعناية تجمع بين الأناقة والجودة والسعر المناسب في <span class="brand-inline">5AMSA STORE</span>.</p>
     </section>
 
+    <!-- الأرقام والإحصائيات -->
     <section class="stats-container">
         <div class="stat-card">
             <h2>+100</h2>
@@ -184,6 +245,7 @@
         </div>
     </section>
 
+    <!-- الرؤية والمهمة ولماذا نحن -->
     <section class="info-sections">
         <div class="info-box">
             <h3>👁️ رؤيتنا</h3>
