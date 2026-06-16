@@ -1456,19 +1456,18 @@ color:#555;
 font-size:16px;
 margin-right:5px;
 }
-.buy-now-btn{
-display:block;
-text-align:center;
-background:#25D366;
-color:white;
-padding:12px;
-border-radius:8px;
-text-decoration:none;
-font-weight:bold;
-margin-top:10px;
-transition:0.3s;
+@media (max-width:768px){
+
+.cart-box-container{
+    position: static !important;
+    margin-top: 10px;
 }
 
-.buy-now-btn:hover{
-opacity:0.9;
+.main-header{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+}
+
 }
