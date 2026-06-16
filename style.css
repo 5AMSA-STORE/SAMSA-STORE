@@ -1458,16 +1458,24 @@ margin-right:5px;
 }
 @media (max-width:768px){
 
-.cart-box-container{
-    position: static !important;
-    margin-top: 10px;
+.main-header{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    gap:15px !important;
+    padding:15px !important;
 }
 
-.main-header{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:10px;
+.center-logo{
+    position:static !important;
+    transform:none !important;
+}
+
+.cart-box-container{
+    position:absolute !important;
+    left:15px !important;
+    top:15px !important;
+    margin:0 !important;
 }
 
 }
