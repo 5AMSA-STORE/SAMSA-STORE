@@ -64,6 +64,7 @@ product.style.display = "none";
 });
 
 }
+console.log(products);
 console.log("SEARCH WORKING");
 const productsContainer = document.getElementById("productsContainer");
 
