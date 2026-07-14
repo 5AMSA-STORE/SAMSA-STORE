@@ -65,3 +65,36 @@ product.style.display = "none";
 
 }
 console.log("SEARCH WORKING");
+const productsContainer = document.getElementById("productsContainer");
+
+if (productsContainer && typeof products !== "undefined") {
+
+    productsContainer.innerHTML = "";
+
+    products.forEach(product => {
+
+        productsContainer.innerHTML += `
+
+        <div class="card">
+
+            <a href="${product.page}">
+                <img src="${product.image}" alt="${product.name}">
+            </a>
+
+            <a href="${product.page}" class="product-link">
+                <h3>${product.name}</h3>
+            </a>
+
+            <p>${product.price} جنيه</p>
+
+            <button onclick="addToCart('${product.name}', ${product.price})">
+                أضف للسلة
+            </button>
+
+        </div>
+
+        `;
+
+    });
+
+}
