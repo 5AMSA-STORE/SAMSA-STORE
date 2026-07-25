@@ -1,3 +1,9 @@
+import { db } from "./js/firebase.js";
+
+import {
+  collection,
+  getDocs
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 const slides = document.querySelectorAll(".slide");
 
 let current = 0;
@@ -64,25 +70,30 @@ product.style.display = "none";
 });
 
 }
-console.log(products);
-console.log("SEARCH WORKING");
 const productsContainer = document.getElementById("productsContainer");
 
-if (productsContainer && typeof products !== "undefined") {
+async function loadProducts() {
+
+    if (!productsContainer) return;
 
     productsContainer.innerHTML = "";
 
-    products.forEach(product => {
+    const snapshot = await getDocs(collection(db, "products"));
+    console.log("عدد المنتجات:", snapshot.size);
+
+    snapshot.forEach((doc) => {
+
+        const product = doc.data();
+        console.log(product);
 
         productsContainer.innerHTML += `
-
         <div class="card">
 
-            <a href="${product.page}">
-                <img src="${product.image}" alt="${product.name}">
+            <a href="${product.page || '#'}">
+                <img src="images/${product.image}" alt="${product.name}">
             </a>
 
-            <a href="${product.page}" class="product-link">
+            <a href="${product.page || '#'}" class="product-link">
                 <h3>${product.name}</h3>
             </a>
 
@@ -93,9 +104,10 @@ if (productsContainer && typeof products !== "undefined") {
             </button>
 
         </div>
-
         `;
 
     });
 
 }
+
+loadProducts();
